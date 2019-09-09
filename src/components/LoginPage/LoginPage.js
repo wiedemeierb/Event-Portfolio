@@ -41,7 +41,7 @@ class LoginPage extends Component {
           </h2>
         )}
         <form onSubmit={this.login}>
-          <h1>Login</h1>
+          <h1>Welcome To Event-Portfolio</h1>
           <div>
             <label htmlFor="username">
               Username:
@@ -49,6 +49,7 @@ class LoginPage extends Component {
                 type="text"
                 name="username"
                 value={this.state.username}
+                placeholder='Email Address'
                 onChange={this.handleInputChangeFor('username')}
               />
             </label>
@@ -60,6 +61,7 @@ class LoginPage extends Component {
                 type="password"
                 name="password"
                 value={this.state.password}
+                placeholder='Password'
                 onChange={this.handleInputChangeFor('password')}
               />
             </label>
@@ -79,7 +81,7 @@ class LoginPage extends Component {
             className="link-button"
             onClick={() => {this.props.dispatch({type: 'SET_TO_REGISTER_MODE'})}}
           >
-            Register
+            Click Here To Register A New User
           </button>
         </center>
       </div>
