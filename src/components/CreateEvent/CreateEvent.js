@@ -101,7 +101,12 @@ class CreateEvent extends Component {
             </label>
           </div>
           <div>
-            <button>Create Event</button>
+            <input
+              className="register"
+              type="submit"
+              name="submit"
+              value="Create Event"
+            />
           </div>
         </form>
         <center>
