@@ -22,6 +22,7 @@ class CreateEvent extends Component {
           date: this.state.date,
           time: this.state.time,
           description: this.state.description,
+          // user_id: this.props.state.user.id
         },
       });
     } else {
@@ -110,7 +111,6 @@ class CreateEvent extends Component {
           </div>
         </form>
         <center>
-       
         </center>
       </div>
     );

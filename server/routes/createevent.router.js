@@ -21,9 +21,10 @@ eventRouter.post('/createevent', (req, res) => {
     const date = req.body.date;
     const time = req.body.time;
     const description = req.body.description;
+    const user_id = req.user.id;
 
-    const queryText = 'INSERT INTO "event" (event_name, location, date, time, description) VALUES ($1, $2, $3, $4, $5)';
-    pool.query(queryText, [event_name, location, date, time, description])
+    const queryText = 'INSERT INTO "event" (event_name, location, date, time, description, user_id) VALUES ($1, $2, $3, $4, $5, $6)';
+    pool.query(queryText, [event_name, location, date, time, description, user_id])
     .then(() => res.sendStatus(201))
     .catch((error) => {
         console.log(error)
