@@ -5,17 +5,23 @@ class RegisterPage extends Component {
   state = {
     username: '',
     password: '',
+    name: '',
+    phone_number: '',
+    payment_username: '',
   };
 
   registerUser = (event) => {
     event.preventDefault();
 
-    if (this.state.username && this.state.password) {
+    if (this.state.username && this.state.password && this.state.name && this.state.phone_number && this.state.payment_username) {
       this.props.dispatch({
         type: 'REGISTER',
         payload: {
           username: this.state.username,
           password: this.state.password,
+          name: this.state.name,
+          phone_number: this.state.phone_number,
+          payment_username: this.state.payment_username,
         },
       });
     } else {
@@ -48,6 +54,7 @@ class RegisterPage extends Component {
               <input
                 type="text"
                 name="username"
+                placeholder='Full Email Address'
                 value={this.state.username}
                 onChange={this.handleInputChangeFor('username')}
               />
@@ -59,8 +66,45 @@ class RegisterPage extends Component {
               <input
                 type="password"
                 name="password"
+                placeholder='8+ characters'
                 value={this.state.password}
                 onChange={this.handleInputChangeFor('password')}
+              />
+            </label>
+          </div>
+          <div>
+            <label htmlFor="name">
+              Name:
+              <input
+                type="text"
+                name="name"
+                placeholder='Full Name'
+                value={this.state.name}
+                onChange={this.handleInputChangeFor('name')}
+              />
+            </label>
+          </div>
+          <div>
+            <label htmlFor="name">
+              Phone Number:
+              <input
+                type="text"
+                name="phone_number"
+                placeholder='xxx-xxx-xxxx'
+                value={this.state.phone_number}
+                onChange={this.handleInputChangeFor('phone_number')}
+              />
+            </label>
+          </div>
+          <div>
+            <label htmlFor="password">
+              Venmo Username:
+              <input
+                type="text"
+                name="payment_username"
+                placeholder='@'
+                value={this.state.payment_username}
+                onChange={this.handleInputChangeFor('payment_username')}
               />
             </label>
           </div>
