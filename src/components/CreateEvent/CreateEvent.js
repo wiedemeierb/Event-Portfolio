@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { HashRouter as Router, Route, Redirect, Switch, } from 'react-router-dom';
 
 class CreateEvent extends Component {
   state = {
@@ -23,12 +24,14 @@ class CreateEvent extends Component {
           time: this.state.time,
           description: this.state.description,
           // user_id: this.props.state.user.id
-        },
+        }
       });
+      this.props.history.push('/home')
     } else {
       this.props.dispatch({ type: 'REGISTRATION_INPUT_ERROR' });
     }
   } // end registerUser
+  
 
   handleInputChangeFor = propertyName => (event) => {
     this.setState({
@@ -38,6 +41,7 @@ class CreateEvent extends Component {
 
   render() {
     return (
+      <Router>
       <div>
         <form onSubmit={this.createEvent}>
           <h1>Create A New Event!</h1>
@@ -113,6 +117,7 @@ class CreateEvent extends Component {
         <center>
         </center>
       </div>
+      </Router>
     );
   }
 }
