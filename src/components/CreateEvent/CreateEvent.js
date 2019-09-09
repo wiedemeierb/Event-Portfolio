@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 class CreateEvent extends Component {
   state = {
-    eventName: '',
+    event_name: '',
     location: '',
     date: '',
     time: '',
@@ -13,11 +13,11 @@ class CreateEvent extends Component {
   createEvent = (event) => {
     event.preventDefault();
 
-    if (this.state.eventName && this.state.location && this.state.date && this.state.time && this.state.description) {
+    if (this.state.event_name && this.state.location && this.state.date && this.state.time && this.state.description) {
       this.props.dispatch({
         type: 'CREATE_EVENT',
         payload: {
-          eventName: this.state.eventName,
+          event_name: this.state.event_name,
           location: this.state.location,
           date: this.state.date,
           time: this.state.time,
@@ -41,14 +41,14 @@ class CreateEvent extends Component {
         <form onSubmit={this.createEvent}>
           <h1>Create A New Event!</h1>
           <div>
-            <label htmlFor="eventName">
+            <label htmlFor="event_name">
               Event Name:
               <input
                 type="text"
-                name="eventName"
+                name="event_name"
                 placeholder='Add a short, clear name'
-                value={this.state.eventName}
-                onChange={this.handleInputChangeFor('eventName')}
+                value={this.state.event_name}
+                onChange={this.handleInputChangeFor('event_name')}
               />
             </label>
           </div>
