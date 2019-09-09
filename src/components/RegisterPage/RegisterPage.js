@@ -13,7 +13,7 @@ class RegisterPage extends Component {
   registerUser = (event) => {
     event.preventDefault();
 
-    if (this.state.username && this.state.password && this.state.name && this.state.phone_number && this.state.payment_username) {
+    if (this.state.username && this.state.password) {
       this.props.dispatch({
         type: 'REGISTER',
         payload: {
@@ -90,7 +90,7 @@ class RegisterPage extends Component {
               <input
                 type="text"
                 name="phone_number"
-                placeholder='xxx-xxx-xxxx'
+                placeholder='Phone Number'
                 value={this.state.phone_number}
                 onChange={this.handleInputChangeFor('phone_number')}
               />
@@ -102,7 +102,7 @@ class RegisterPage extends Component {
               <input
                 type="text"
                 name="payment_username"
-                placeholder='@'
+                placeholder='@Venmo'
                 value={this.state.payment_username}
                 onChange={this.handleInputChangeFor('payment_username')}
               />

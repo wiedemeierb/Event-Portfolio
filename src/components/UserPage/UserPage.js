@@ -8,9 +8,11 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 const UserPage = (props) => (
   <div>
     <h1 id="welcome">
-      Welcome, { props.user.username }!
+      Welcome, { props.user.name }!
     </h1>
-    <p>Your ID is: {props.user.id}</p>
+    <p>Your Username and Email Address is: {props.user.username}</p>
+    <p>Your Phone Number is: {props.user.phone_number}</p>
+    <p>Your Venmo Username is: {props.user.payment_username}</p>
     <LogOutButton className="log-in" />
   </div>
 );
