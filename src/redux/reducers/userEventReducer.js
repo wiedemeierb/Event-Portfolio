@@ -1,4 +1,4 @@
-const userEventReducer = (state = {}, action) => {
+const userEventReducer = (state = [], action) => {
     switch (action.type) {
         case 'SET_USEREVENT':
             return action.payload;
@@ -9,5 +9,5 @@ const userEventReducer = (state = {}, action) => {
 };
 
 // user will be on the redux state at:
-// state.user
+// state.userEvent
 export default userEventReducer;
