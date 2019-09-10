@@ -11,15 +11,23 @@ class UserPage extends Component {
     this.props.dispatch({ type: 'FETCH_USEREVENT' })
   }
 
+  handleDelete(id, user_id){
+    console.log('handleDelete is being clicked')
+    console.log(id);
+    console.log(user_id);
+
+    this.props.dispatch({ type: 'DELETE_EVENT', payload: {id: id, userId: user_id } })
+  }
+
   render(){
     // console.log('this is state right now', this.props)
     let table = this.props.userEvent.map((item) => {
-      return (<tr><td>{item.event_name}</td>
+      return (<tr key={item.id}><td>{item.event_name}</td>
                   <td>{item.location}</td>
                   <td>{item.date}</td>
                   <td>{item.time}</td>
                   <td><button>View Event</button></td>
-                  <td><button>Delete Event</button></td>
+                  <td><button onClick={() => this.handleDelete(item.id, item.user_id)}>Delete</button></td>
               </tr>)
       // <td><button onClick={() => this.handleDelete(item.id, item.user_id)}>Delete</button></td></tr>)
     })
@@ -35,7 +43,7 @@ class UserPage extends Component {
           <p>Your Venmo Username is: {this.props.user.payment_username}</p>
         </div>
 
-        <table class="table table-hover table-bordered">
+        <table className="table table-hover table-bordered">
           <thead>
             <tr>
               <th>Event Name</th>
