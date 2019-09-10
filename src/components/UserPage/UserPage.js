@@ -75,4 +75,4 @@ const mapStateToProps = state => ({
       });
       
 // this allows us to use <App /> in index.js
-        export default connect(mapStateToProps)(UserPage);
+export default connect(mapStateToProps)(UserPage);
