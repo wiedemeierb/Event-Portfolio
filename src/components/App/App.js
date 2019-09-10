@@ -10,6 +10,7 @@ import UserPage from '../UserPage/UserPage';
 import CreateEvent from '../CreateEvent/CreateEvent';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
 
 class App extends Component {
   componentDidMount () {

@@ -18,6 +18,8 @@ class UserPage extends Component {
                   <td>{item.location}</td>
                   <td>{item.date}</td>
                   <td>{item.time}</td>
+                  <td><button>View Event</button></td>
+                  <td><button>Delete Event</button></td>
               </tr>)
       // <td><button onClick={() => this.handleDelete(item.id, item.user_id)}>Delete</button></td></tr>)
     })
@@ -33,13 +35,15 @@ class UserPage extends Component {
           <p>Your Venmo Username is: {this.props.user.payment_username}</p>
         </div>
 
-        <table>
+        <table class="table table-hover table-bordered">
           <thead>
             <tr>
               <th>Event Name</th>
               <th>Location</th>
               <th>Date</th>
               <th>Time</th>
+              <th>View</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
