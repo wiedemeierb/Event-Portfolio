@@ -7,7 +7,12 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 // and then instead of `props.user.username` you could use `user.username`
 
 class UserPage extends Component {
-render () {
+  componentDidMount() {
+    this.props.dispatch({ type: 'FETCH_USEREVENT' })
+  }
+
+  render () {
+  console.log('this is state right now', this.props)
   return(
     <div>
       <h1 id="welcome">
@@ -16,52 +21,18 @@ render () {
       <p>Your Username and Email Address is: {this.props.user.username}</p>
       <p>Your Phone Number is: {this.props.user.phone_number}</p>
       <p>Your Venmo Username is: {this.props.user.payment_username}</p>
-
+      {/* <p>Event Testing: {this.props.event.location} </p> */}
       <LogOutButton className="log-in" />
     </div>
   )
 }}
-
-// class FavouriteTeam extends Component {
-//   state = {
-//     teams: [],
-//     selectedTeam: "",
-//     validationError: ""
-//   }
-
-//   componentDidMount() {
-//     fetch("http://localhost:26854/api/premiershipteams")
-//       .then((response) => {
-//         return response.json();
-//       })
-//       .then(data => {
-//         let teamsFromApi = data.map(team => { return { value: team, display: team } })
-//         this.setState({ teams: [{ value: '', display: '(Select your favourite team)' }].concat(teamsFromApi) });
-//       }).catch(error => {
-//         console.log(error);
-//       });
-//   }
-
-//   render() {
-//     return (
-//       <div>
-//         <select value={this.state.selectedTeam}
-//           onChange={(e) => this.setState({ selectedTeam: e.target.value, validationError: e.target.value === "" ? "You must select your favourite team" : "" })}>
-//           {this.state.teams.map((team) => <option key={team.value} value={team.value}>{team.display}</option>)}
-//         </select>
-//         <div style={{ color: 'red', marginTop: '5px' }}>
-//           {this.state.validationError}
-//         </div>
-//       </div>
-//     )
-//   }
-// }
 
 // Instead of taking everything from state, we just want the user info.
 // if you wanted you could write this code like this:
 // const mapStateToProps = ({user}) => ({ user });
 const mapStateToProps = state => ({
   user: state.user,
+  event: state.event,
 });
 
 // this allows us to use <App /> in index.js
