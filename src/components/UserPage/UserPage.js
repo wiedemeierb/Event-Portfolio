@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
+import Moment from 'react-moment';
 
 // this could also be written with destructuring parameters as:
 // const UserPage = ({ user }) => (
@@ -24,7 +25,7 @@ class UserPage extends Component {
     let table = this.props.userEvent.map((item) => {
       return (<tr key={item.id}><td>{item.event_name}</td>
                   <td>{item.location}</td>
-                  <td>{item.date}</td>
+        <Moment format="MM/DD/YYYY"><td>{item.date}</td></Moment>
                   <td>{item.time}</td>
                   <td><button>View Event</button></td>
                   <td><button onClick={() => this.handleDelete(item.id, item.user_id)}>Delete</button></td>
