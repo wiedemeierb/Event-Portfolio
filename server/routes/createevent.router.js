@@ -32,6 +32,8 @@ eventRouter.post('/createevent', (req, res) => {
     });
 });
 
+
+
 eventRouter.post('/logout', (req, res) => {
     // Use passport's built-in method to log out the user
     req.logout();

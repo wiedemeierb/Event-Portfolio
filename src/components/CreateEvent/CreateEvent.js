@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { HashRouter as Router, Route, Redirect, Switch, } from 'react-router-dom';
-
+import { HashRouter as Router } from 'react-router-dom';
+// if needed with routers Route, Redirect, Switch,
 class CreateEvent extends Component {
   state = {
     event_name: '',
