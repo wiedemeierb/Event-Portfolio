@@ -25,7 +25,8 @@ class UserPage extends Component {
     let table = this.props.userEvent.map((item) => {
       return (<tr key={item.id}><td>{item.event_name}</td>
                   <td>{item.location}</td>
-        <Moment format="MM/DD/YYYY"><td>{item.date}</td></Moment>
+                  <td><Moment format="MM/DD/YYYY">{item.date}</Moment></td>
+                  {/* <td>{item.date}</td> */}
                   <td>{item.time}</td>
                   <td><button>View Event</button></td>
                   <td><button onClick={() => this.handleDelete(item.id, item.user_id)}>Delete</button></td>

@@ -4,7 +4,7 @@ import { put, takeLatest } from 'redux-saga/effects';
 // DON'T NEED ACTION AFTER FETCH EVENT SINCE ITS A GET
 function* fetchUserEvent() {
     try{
-        //GET THE EVENT FROM OUR SERVER
+    //GET THE EVENT FROM OUR SERVER
     const response = yield axios.get(`/api/usereventpage`);
     //THEN, SEND TO REDUX
     console.log('saga response!', response.data)
