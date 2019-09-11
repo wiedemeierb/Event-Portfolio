@@ -7,7 +7,7 @@ function* fetchUserEvent() {
     //GET THE EVENT FROM OUR SERVER
     const response = yield axios.get(`/api/usereventpage`);
     //THEN, SEND TO REDUX
-    console.log('saga response!', response.data)
+    // console.log('saga response!', response.data)
     // PUT IS DISPATCH
     yield put({
         type: 'SET_USEREVENT', 
@@ -20,7 +20,7 @@ function* fetchUserEvent() {
 
 function* removeEvent(action) {
     try{
-        console.log('this is the delete payload', action.payload);
+        // console.log('this is the delete payload', action.payload);
         let id = action.payload.id
         console.log(id);
 

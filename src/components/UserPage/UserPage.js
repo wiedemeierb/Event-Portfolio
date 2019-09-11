@@ -26,7 +26,8 @@ class UserPage extends Component {
       payload: id
     })
     // console.log('get dispatch of event page')
-    this.props.history.push('/eventpage');
+    // this.props.history.push(`/eventpage${id}`);
+    this.props.history.push(`/eventpage`);
   }
 
   render(){
