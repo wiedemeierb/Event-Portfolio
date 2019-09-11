@@ -13,11 +13,20 @@ class UserPage extends Component {
   }
 
   handleDelete(id, user_id){
-    console.log('handleDelete is being clicked')
-    console.log(id);
-    console.log(user_id);
-
+    // console.log('handleDelete is being clicked')
+    // console.log(id);
+    // console.log(user_id);
     this.props.dispatch({ type: 'DELETE_EVENT', payload: {id: id, userId: user_id } })
+  }
+
+  handleClick = (id) => {
+    // console.log('handleClick operational:')
+    this.props.dispatch({
+      type: 'FETCH_USEREVENT',
+      payload: id
+    })
+    // console.log('get dispatch of event page')
+    this.props.history.push('/eventpage');
   }
 
   render(){
@@ -26,16 +35,13 @@ class UserPage extends Component {
       return (<tr key={item.id}><td>{item.event_name}</td>
                   <td>{item.location}</td>
                   <td><Moment format="MM/DD/YYYY">{item.date}</Moment></td>
-                  {/* <td>{item.date}</td> */}
                   <td>{item.time}</td>
-                  <td><button>View Event</button></td>
+                  <td><button onClick={()=>this.handleClick(item.id)}>View Event</button></td>
                   <td><button onClick={() => this.handleDelete(item.id, item.user_id)}>Delete</button></td>
               </tr>)
-      // <td><button onClick={() => this.handleDelete(item.id, item.user_id)}>Delete</button></td></tr>)
     })
     return (
       <div>
-
         <div>
           <h1 id="welcome">
             Welcome, {this.props.user.name}!
@@ -65,7 +71,6 @@ class UserPage extends Component {
         )
       }
     };
-      
       
       
       // Instead of taking everything from state, we just want the user info.
