@@ -6,6 +6,7 @@ class EventPage extends Component {
 
     componentDidMount() {
         this.props.dispatch({ type: 'FETCH_USEREVENT' })
+        this.props.dispatch({ type: 'FETCH_ALLUSERS'})
     }
 
     render(){
@@ -28,6 +29,15 @@ class EventPage extends Component {
                     </tr>)
         })
 
+        
+        // let allUsers = [this.props.user].map((attendee) => {
+        //     return 
+        //     {attendee.name}
+        //     // <option>{allAttendees.name}</option>
+        // })
+        
+        
+
         return(
         <div>
             <h1>Welcome to:</h1>
@@ -45,7 +55,7 @@ class EventPage extends Component {
                     {table}
                 </tbody>
             </table>
-
+                <h1>Attendees:</h1>
                 <table className="table table-hover table-bordered">
                     <thead>
                         <tr>
@@ -58,8 +68,17 @@ class EventPage extends Component {
                         {attendeeTable}
                     </tbody>
                 </table>
+                {/* dropdown table with all users */}
+                <select>
+                    {this.props.allUsers.map(allAttendees => {
+                            return (
+                                <option value={allAttendees.id}>{allAttendees.name}</option>
+                            )
+                        })}
+                </select>
                 <button>Add Attendee</button>
-            
+                
+            <h1>Items Needed:</h1>
             <table className="table table-hover table-bordered">
                 <thead>
                     <tr>
@@ -83,6 +102,7 @@ class EventPage extends Component {
 const mapStateToProps = state => ({
     user: state.user,
     userEvent: state.userEvent,
+    allUsers: state.allUsers,
 });
 
 // this allows us to use <App /> in index.js

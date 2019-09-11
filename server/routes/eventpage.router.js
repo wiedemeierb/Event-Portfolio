@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
         pool.query(queryText, [id])
             .then(results => res.send(results.rows))
             .catch(error => {
-                console.log('Error in GET route server side', error);
+                console.log('Error in GET route eventpage.router', error);
                 res.sendStatus(418)
             })
     }
