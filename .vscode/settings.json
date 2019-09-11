@@ -5,6 +5,7 @@
         "fetch",
         "userevent",
         "usereventpage",
-        "userpage"
+        "userpage",
+        "venmo"
     ]
 }

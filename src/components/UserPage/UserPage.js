@@ -47,9 +47,9 @@ class UserPage extends Component {
           <h1 id="welcome">
             Welcome, {this.props.user.name}!
           </h1>
-          <p>Your Username and Email Address is: {this.props.user.username}</p>
-          <p>Your Phone Number is: {this.props.user.phone_number}</p>
-          <p>Your Venmo Username is: {this.props.user.payment_username}</p>
+          <p>Your Username/Email Address is: {this.props.user.username}</p>
+          <p>Phone Number is: {this.props.user.phone_number}</p>
+          <p>Venmo Username is: {this.props.user.payment_username}</p>
         </div>
 
         <table className="table table-hover table-bordered">

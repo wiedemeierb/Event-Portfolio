@@ -51,7 +51,7 @@ class EventPage extends Component {
                         <tr>
                             <th>Name</th>
                             <th>Email</th>
-                            <th><a href={"https://venmo.com"}>Venmo</a></th>
+                            <th><a href={"https://venmo.com"}>Sign Up For Venmo</a></th>
                         </tr>
                     </thead>
                     <tbody>

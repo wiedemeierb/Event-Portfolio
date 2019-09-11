@@ -102,7 +102,7 @@ class RegisterPage extends Component {
               <input
                 type="text"
                 name="payment_username"
-                placeholder='@Venmo'
+                placeholder='Venmo'
                 value={this.state.payment_username}
                 onChange={this.handleInputChangeFor('payment_username')}
               />
