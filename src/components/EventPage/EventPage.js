@@ -19,24 +19,14 @@ class EventPage extends Component {
                 <td>{item.description}</td>
                     </tr>)
         })
-        // console.log('in event page')
+        
         let attendeeTable = [this.props.user].map((attendee) => {
             return (<tr key={attendee.id}>
                 <td>{attendee.name}</td>
                 <td>{attendee.username}</td>
                 <td><a href={`http://venmo.com/${attendee.payment_username}`}>Click To Pay</a></td>
-                {/* <td>{attendee.payment_username}</td> */}
                     </tr>)
         })
-
-        
-        // let allUsers = [this.props.user].map((attendee) => {
-        //     return 
-        //     {attendee.name}
-        //     // <option>{allAttendees.name}</option>
-        // })
-        
-        
 
         return(
         <div>
@@ -55,6 +45,7 @@ class EventPage extends Component {
                     {table}
                 </tbody>
             </table>
+
                 <h1>Attendees:</h1>
                 <table className="table table-hover table-bordered">
                     <thead>
@@ -68,13 +59,12 @@ class EventPage extends Component {
                         {attendeeTable}
                     </tbody>
                 </table>
-                {/* dropdown table with all users */}
+                
                 <select>
                     {this.props.allUsers.map(allAttendees => {
                             return (
-                                <option value={allAttendees.id}>{allAttendees.name}</option>
-                            )
-                        })}
+                                <option key={allAttendees.id}>{allAttendees.name}</option>
+                            )})}
                 </select>
                 <button>Add Attendee</button>
                 

@@ -7,10 +7,10 @@ const router = express.Router();
  */
 router.get('/', (req, res) => {
     if(req.isAuthenticated()){
-        console.log('req.user:', req.user.id);
+        // console.log('req.user:', req.user.id);
         let id = req.user.id
         let queryText = `SELECT * FROM "event" WHERE "user_id" = $1;`;
-        console.log('in GET router')
+        // console.log('in GET router')
         pool.query(queryText, [id])
         .then(results => res.send(results.rows))
         .catch(error => {
@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-    console.log(req.body, req.user);
+    // console.log(req.body, req.user);
 
     if(req.isAuthenticated()){
         let queryText = `DELETE FROM "event" WHERE "user_id" = $1 AND "id" = $2`
