@@ -27,7 +27,7 @@ class UserPage extends Component {
     })
     // console.log('get dispatch of event page')
     this.props.history.push(`/eventpage/${id}`);
-    // this.props.history.push(`/eventpage`);
+    
   }
 
   render(){

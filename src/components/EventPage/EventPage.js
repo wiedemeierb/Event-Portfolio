@@ -5,13 +5,13 @@ import Moment from 'react-moment';
 class EventPage extends Component {
 
     componentDidMount() {
-        // this.props.dispatch({ type: 'FETCH_USEREVENT' })
         this.props.dispatch({ type: 'FETCH_ALLUSERS'})
         // this.props.dispatch({ type: 'FETCH_EVENT' })
     }
 
     render(){
-        let table = [this.props.event].map((item) => {
+        console.log('this is state right now', this.props)
+        let table = this.props.event.map((item) => {
             return (<tr key={item.id}>
                 <td>{item.event_name}</td>
                 <td>{item.location}</td>

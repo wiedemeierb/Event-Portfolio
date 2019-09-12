@@ -8,8 +8,7 @@ function* fetchEvent(action) {
         //     headers: { 'Content-Type': 'application/json' },
         //     withCredentials: true,
         // };
-        // const response = yield axios.get(`/api/eventpage`, config);
-        console.log('in fetchEventSaga')
+        // console.log('in fetchEventSaga')
         const response = yield axios.get(`/api/eventpage/${action.payload}`);
         console.log('in GET eventSaga response', response.data)
 
