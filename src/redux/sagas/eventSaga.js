@@ -10,7 +10,7 @@ function* fetchEvent(action) {
         // };
         // console.log('in fetchEventSaga')
         const response = yield axios.get(`/api/eventpage/${action.payload}`);
-        console.log('in GET eventSaga response', response.data)
+        // console.log('in GET eventSaga response', response.data)
 
         yield put({
             type: 'SET_EVENT',

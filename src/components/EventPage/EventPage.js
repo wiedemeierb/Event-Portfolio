@@ -7,10 +7,38 @@ class EventPage extends Component {
     componentDidMount() {
         this.props.dispatch({ type: 'FETCH_ALLUSERS'})
         // this.props.dispatch({ type: 'FETCH_EVENT' })
+    };
+
+    state = {
+        added_item: '',
+        cost: '',
+    };
+
+    handleChangeItem = (event) => {
+        console.log(event.target.value)
+        this.setState({
+            added_item: event.target.value
+        })
+    }
+
+    handleChangeCost = (event) => {
+        console.log(event.target.value)
+        this.setState({
+            cost: event.target.value
+        })
+    }
+
+    handleClickAddItem = (event) => {
+        event.preventDefault();
+        console.log('handleClickAddItem operational:', this.state)
+        this.props.dispatch({
+            type: 'ADD_ITEM',
+            payload: this.state
+        })
     }
 
     render(){
-        console.log('this is state right now', this.props)
+        // console.log('this is state right now', this.props)
         let table = this.props.event.map((item) => {
             return (<tr key={item.id}>
                 <td>{item.event_name}</td>
@@ -75,16 +103,16 @@ class EventPage extends Component {
                     <tr>
                         <th>Items Needed</th>
                         <th>Cost</th>
-                        <th>User Added Method</th>
+                        <th>User Added</th>
                     </tr>
                 </thead>
                 <tbody>
                     {/* Here we will put our .map information */}
                 </tbody>
             </table>
-            <input placeholder="New Item" />
-            <input placeholder="Cost" />
-            <button>Add New Item</button>
+            <input onChange={this.handleChangeItem} type='text' placeholder="New Item" />
+            <input onChange={this.handleChangeCost} type='text' placeholder="Cost" />
+            <button onClick={this.handleClickAddItem}>Add New Item</button>
         </div>
         )
     }
@@ -95,6 +123,7 @@ const mapStateToProps = state => ({
     // userEvent: state.userEvent,
     allUsers: state.allUsers,
     event: state.event
+
 });
 
 // this allows us to use <App /> in index.js
