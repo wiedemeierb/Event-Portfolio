@@ -6,23 +6,23 @@ class EventPage extends Component {
 
     componentDidMount() {
         this.props.dispatch({ type: 'FETCH_ALLUSERS'})
-        // this.props.dispatch({ type: 'FETCH_EVENT' })
     };
 
     state = {
         added_item: '',
         cost: '',
+        event_id: this.props.match.params.id,
     };
 
     handleChangeItem = (event) => {
-        console.log(event.target.value)
+        // console.log(event.target.value)
         this.setState({
             added_item: event.target.value
         })
     }
 
     handleChangeCost = (event) => {
-        console.log(event.target.value)
+        // console.log(event.target.value)
         this.setState({
             cost: event.target.value
         })
@@ -33,7 +33,7 @@ class EventPage extends Component {
         console.log('handleClickAddItem operational:', this.state)
         this.props.dispatch({
             type: 'ADD_ITEM',
-            payload: this.state
+            payload: this.state,
         })
     }
 
@@ -120,7 +120,7 @@ class EventPage extends Component {
 
 const mapStateToProps = state => ({
     user: state.user,
-    // userEvent: state.userEvent,
+    userEvent: state.userEvent,
     allUsers: state.allUsers,
     event: state.event
 

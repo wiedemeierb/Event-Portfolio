@@ -2,7 +2,7 @@ import { takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
 function* addItem(action) {
-    console.log('in itemSaga')
+    // console.log('in itemSaga')
     try {
         //  passes item from payload to server
         yield axios.post('/api/additem', action.payload);
