@@ -5,12 +5,13 @@ import Moment from 'react-moment';
 class EventPage extends Component {
 
     componentDidMount() {
-        this.props.dispatch({ type: 'FETCH_USEREVENT' })
+        // this.props.dispatch({ type: 'FETCH_USEREVENT' })
         this.props.dispatch({ type: 'FETCH_ALLUSERS'})
+        // this.props.dispatch({ type: 'FETCH_EVENT' })
     }
 
     render(){
-        let table = this.props.userEvent.map((item) => {
+        let table = [this.props.event].map((item) => {
             return (<tr key={item.id}>
                 <td>{item.event_name}</td>
                 <td>{item.location}</td>
@@ -63,7 +64,7 @@ class EventPage extends Component {
                 <select>
                     {this.props.allUsers.map(allAttendees => {
                             return (
-                                <option key={allAttendees.id}>{allAttendees.name}</option>
+                                <option value={allAttendees.id} key={allAttendees.id}>{allAttendees.name}</option>
                             )})}
                 </select>
                 <button>Add Attendee</button>
@@ -91,8 +92,9 @@ class EventPage extends Component {
 
 const mapStateToProps = state => ({
     user: state.user,
-    userEvent: state.userEvent,
+    // userEvent: state.userEvent,
     allUsers: state.allUsers,
+    event: state.event
 });
 
 // this allows us to use <App /> in index.js

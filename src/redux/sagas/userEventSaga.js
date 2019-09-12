@@ -2,7 +2,7 @@ import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
 // DON'T NEED ACTION AFTER FETCH EVENT SINCE ITS A GET
-function* fetchUserEvent() {
+function* fetchUserEvents() {
     try{
     //GET THE EVENT FROM OUR SERVER
     const response = yield axios.get(`/api/usereventpage`);
@@ -10,7 +10,7 @@ function* fetchUserEvent() {
     // console.log('saga response!', response.data)
     // PUT IS DISPATCH
     yield put({
-        type: 'SET_USEREVENT', 
+        type: 'SET_USEREVENTS', 
         payload: response.data
     });
     } catch (err) {
@@ -26,7 +26,7 @@ function* removeEvent(action) {
 
         yield axios.delete(`/api/usereventpage/${id}`, {user_id: action.payload})
         yield put({
-            type: 'FETCH_USEREVENT',
+            type: 'FETCH_USEREVENTS',
         })
     }catch (error) {
         console.log(error);
@@ -34,7 +34,7 @@ function* removeEvent(action) {
 }
 
 function* userEventSaga() {
-    yield takeLatest('FETCH_USEREVENT', fetchUserEvent);
+    yield takeLatest('FETCH_USEREVENTS', fetchUserEvents);
     yield takeLatest('DELETE_EVENT', removeEvent);
 }
 

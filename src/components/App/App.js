@@ -51,7 +51,7 @@ class App extends Component {
             />
             <ProtectedRoute
             exact
-            path="/eventpage"
+            path="/eventpage/:id"
             component={EventPage}
             />
 

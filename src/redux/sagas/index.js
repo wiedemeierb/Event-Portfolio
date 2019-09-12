@@ -5,6 +5,7 @@ import userSaga from './userSaga';
 import createEventSaga from './createEventSaga';
 import userEventSaga from './userEventSaga';
 import allUsersSaga from './allUsersSaga';
+import eventSaga from './eventSaga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -21,5 +22,6 @@ export default function* rootSaga() {
     createEventSaga(),
     userEventSaga(),
     allUsersSaga(),
+    eventSaga(),
   ]);
 }

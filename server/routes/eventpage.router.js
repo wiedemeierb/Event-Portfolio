@@ -5,17 +5,21 @@ const router = express.Router();
 /**
  * GET route template
  */
-router.get('/', (req, res) => {
+router.get('/:id', (req, res) => {
     if (req.isAuthenticated()) {
         // console.log('req.user:', req.user.id);
-        let id = req.user.id
-        let queryText = `SELECT * FROM "event" WHERE "user_id" = $1;`;
-        // console.log('in GET router')
-        pool.query(queryText, [id])
-            .then(results => res.send(results.rows))
+        // console.log(req.params)
+        let eventId = req.params.id
+        let queryText = `SELECT * FROM "event" WHERE "id" = $1;`;
+        // console.log('in event GET router')
+        // console.log(eventId)
+        pool.query(queryText, [eventId])
+            .then(result => {
+                res.send(result.rows);
+            })
             .catch(error => {
                 console.log('Error in GET route eventpage.router', error);
-                res.sendStatus(418)
+                res.sendStatus(500)
             })
     }
 });

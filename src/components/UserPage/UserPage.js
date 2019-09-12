@@ -9,7 +9,7 @@ import Moment from 'react-moment';
 
 class UserPage extends Component {
   componentDidMount(){
-    this.props.dispatch({ type: 'FETCH_USEREVENT' })
+    this.props.dispatch({ type: 'FETCH_USEREVENTS' })
   }
 
   handleDelete(id, user_id){
@@ -22,21 +22,22 @@ class UserPage extends Component {
   handleClick = (id) => {
     // console.log('handleClick operational:')
     this.props.dispatch({
-      type: 'FETCH_USEREVENT',
+      type: 'FETCH_EVENT',
       payload: id
     })
     // console.log('get dispatch of event page')
-    // this.props.history.push(`/eventpage${id}`);
-    this.props.history.push(`/eventpage`);
+    this.props.history.push(`/eventpage/${id}`);
+    // this.props.history.push(`/eventpage`);
   }
 
   render(){
     // console.log('this is state right now', this.props)
-    let table = this.props.userEvent.map((item) => {
+    let table = this.props.userEvents.map((item) => {
       return (<tr key={item.id}><td>{item.event_name}</td>
                   <td>{item.location}</td>
                   <td><Moment format="MM/DD/YYYY">{item.date}</Moment></td>
                   <td>{item.time}</td>
+                  
                   <td><button onClick={()=>this.handleClick(item.id)}>View Event</button></td>
                   <td><button onClick={() => this.handleDelete(item.id, item.user_id)}>Delete</button></td>
               </tr>)
@@ -79,7 +80,7 @@ class UserPage extends Component {
 // const mapStateToProps = ({user}) => ({user});
 const mapStateToProps = state => ({
         user: state.user,
-        userEvent: state.userEvent,
+        userEvents: state.userEvents,
       });
       
 // this allows us to use <App /> in index.js
