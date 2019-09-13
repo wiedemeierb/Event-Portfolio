@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Moment from 'react-moment';
+import { actionChannel } from 'redux-saga/effects';
 
 class EventPage extends Component {
 
@@ -48,6 +49,15 @@ class EventPage extends Component {
         })
     }
 
+    // handleDeleteItem(id, user_id) {
+    handleDeleteItem(id) {
+        // console.log(id);
+        // console.log(user_id);
+        alert('Are You Sure?')
+        // this.props.dispatch({ type: 'DELETE_ITEM', payload: { id: id, userId: user_id } })
+        this.props.dispatch({ type: 'DELETE_ITEM', payload: id})
+    }
+
     render(){
         // console.log('this is state right now', this.props)
         let table = this.props.event.map((item) => {
@@ -72,6 +82,8 @@ class EventPage extends Component {
             return (<tr key={item.id}>
                 <td>{item.item}</td>
                 <td>{item.cost}</td>
+                <td><button onClick={() => this.handleDeleteItem(item.id)}>DELETE ITEM</button></td>
+                {/* <td><button onClick={() => this.handleDeleteItem(item.id, item.user_id)}>DELETE ITEM</button></td> */}
                 {/* <td>USER NAME EVENTUALLY HERE</td> */}
             </tr>)
         })
@@ -122,7 +134,7 @@ class EventPage extends Component {
                     <tr>
                         <th>Items Needed</th>
                         <th>Cost</th>
-                        <th>User Added</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>

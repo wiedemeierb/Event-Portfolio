@@ -35,5 +35,20 @@ router.post('/', (req, res) => {
     });
 });
 
+router.delete('/:id', (req, res) => {
+    // console.log(req.body);
+    if (req.isAuthenticated()) {
+        let id = req.params.id
+        console.log(req.params.id)
+        let queryText = `DELETE FROM "items" WHERE "id" = $1`
+        pool.query(queryText, [id])
+            .then(results => res.sendStatus(201))
+            .catch(error => {
+                console.log('error in server side DELETE', error);
+                res.sendStatus(418)
+            })
+    } else { 403 }
+});
+
 
 module.exports = router;

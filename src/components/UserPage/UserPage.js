@@ -37,7 +37,6 @@ class UserPage extends Component {
                   <td>{item.location}</td>
                   <td><Moment format="MM/DD/YYYY">{item.date}</Moment></td>
                   <td>{item.time}</td>
-                  
                   <td><button onClick={()=>this.handleClick(item.id)}>View Event</button></td>
                   <td><button onClick={() => this.handleDelete(item.id, item.user_id)}>Delete</button></td>
               </tr>)
