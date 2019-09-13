@@ -30,9 +30,6 @@ class CreateEvent extends Component {
       });
       // alert('EVENT CREATED SUCCESSFULLY')
       this.props.history.push('/home')
-    // } else {
-    //   this.props.dispatch({ type: 'REGISTRATION_INPUT_ERROR' });
-    // }
   }
   
 

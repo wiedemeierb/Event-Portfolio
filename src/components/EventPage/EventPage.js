@@ -53,7 +53,7 @@ class EventPage extends Component {
     handleDeleteItem(id) {
         // confirm("Are You Sure?")
         
-        this.props.dispatch({ type: 'DELETE_ITEM', payload: id})
+        this.props.dispatch({ type: 'DELETE_ITEM', payload: { id: id, eventId: this.state.event_id}})
     }
 
     render(){

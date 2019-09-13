@@ -40,10 +40,12 @@ function* removeItem(action) {
         // console.log(id);
 
         // yield axios.delete(`/api/additem/${id}`, { user_id: action.payload })
-        yield axios.delete(`/api/additem/${action.payload}`)
-        // yield put({
-        //     type: 'FETCH_ITEMS',
-        // })
+        yield axios.delete(`/api/additem/${action.payload.id}`)
+        yield put({
+            type: 'FETCH_ITEMS',
+            // payload: action.payload.eventId
+            payload: {id: Number(action.payload.eventId)}
+        })
     } catch (error) {
         console.log(error);
     }
@@ -53,7 +55,6 @@ function* itemsSaga() {
     yield takeLatest('FETCH_ITEMS', fetchItems);
     yield takeLatest('ADD_ITEM', addItem);
     yield takeLatest('DELETE_ITEM', removeItem);
-    
 }
 
 export default itemsSaga;
