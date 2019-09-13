@@ -15,7 +15,6 @@ class UserPage extends Component {
   handleDelete(id, user_id){
     // console.log(id);
     // console.log(user_id);
-    alert('Are You Sure?')
     this.props.dispatch({ type: 'DELETE_EVENT', payload: {id: id, userId: user_id } })
   }
 
@@ -38,7 +37,8 @@ class UserPage extends Component {
                   <td><Moment format="MM/DD/YYYY">{item.date}</Moment></td>
                   <td>{item.time}</td>
                   <td><button onClick={()=>this.handleClick(item.id)}>View Event</button></td>
-                  <td><button onClick={() => this.handleDelete(item.id, item.user_id)}>Delete</button></td>
+                  {/* <td><button onClick={() => this.handleDelete(item.id, item.user_id)}>Delete</button></td> */}
+        <td><button onClick={() => { if (window.confirm('Are you sure you wish to delete this event?')) this.handleDelete(item.id, item.user_id) }}>Delete</button></td>
               </tr>)
     })
     return (

@@ -72,7 +72,7 @@ class EventPage extends Component {
             return (<tr key={attendee.id}>
                 <td>{attendee.name}</td>
                 <td>{attendee.username}</td>
-                <td><a href={`http://venmo.com/${attendee.payment_username}`}>Click To Pay</a></td>
+                <td><button><a href={`http://venmo.com/${attendee.payment_username}`}>Click To Pay</a></button></td>
                     </tr>)
         })
 
@@ -81,9 +81,7 @@ class EventPage extends Component {
                 <td>{item.item}</td>
                 <td>{item.cost}</td>
                 {/* <td>USER NAME EVENTUALLY HERE</td> */}
-                <button onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) this.handleDeleteItem(item.id) }}>
-                    Delete
-                </button>
+                <td><button onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) this.handleDeleteItem(item.id) }}>Delete</button></td>
             </tr>)
         })
 
