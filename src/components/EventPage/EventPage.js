@@ -6,7 +6,9 @@ class EventPage extends Component {
 
     componentDidMount() {
         this.props.dispatch({ type: 'FETCH_ALLUSERS'})
-        this.props.dispatch({ type: 'FETCH_ITEMS'})
+        this.props.dispatch({ 
+            type: 'FETCH_ITEMS',
+            payload: {id: Number(this.props.match.params.id)}})
     };
 
     state = {
@@ -56,6 +58,14 @@ class EventPage extends Component {
                 <td>{attendee.username}</td>
                 <td><a href={`http://venmo.com/${attendee.payment_username}`}>Click To Pay</a></td>
                     </tr>)
+        })
+
+        let itemTable = this.props.items.map((item) => {
+            return (<tr key={item.id}>
+                <td>{item.item}</td>
+                <td>{item.cost}</td>
+                {/* <td>USER NAME EVENTUALLY HERE</td> */}
+            </tr>)
         })
 
         return(
@@ -108,7 +118,7 @@ class EventPage extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    {/* Here we will put our .map information */}
+                    {itemTable}
                 </tbody>
             </table>
             <input onChange={this.handleChangeItem} type='text' placeholder="New Item" />

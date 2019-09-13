@@ -1,10 +1,10 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-function* fetchItems() {
+function* fetchItems(action) {
     try {
         //GET ITEMS FROM SERVER
-        const response = yield axios.get(`/api/additem`);
+        const response = yield axios.get(`/api/additem/${action.payload.id}`);
         //SEND TO REDUX
         console.log('itemSaga response:', response.data)
         //PLACE IN DISPATCH
