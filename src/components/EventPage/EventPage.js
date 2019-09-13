@@ -49,12 +49,10 @@ class EventPage extends Component {
         })
     }
 
-    // handleDeleteItem(id, user_id) {
+    
     handleDeleteItem(id) {
-        // console.log(id);
-        // console.log(user_id);
-        alert('Are You Sure?')
-        // this.props.dispatch({ type: 'DELETE_ITEM', payload: { id: id, userId: user_id } })
+        // confirm("Are You Sure?")
+        
         this.props.dispatch({ type: 'DELETE_ITEM', payload: id})
     }
 
@@ -82,9 +80,10 @@ class EventPage extends Component {
             return (<tr key={item.id}>
                 <td>{item.item}</td>
                 <td>{item.cost}</td>
-                <td><button onClick={() => this.handleDeleteItem(item.id)}>DELETE ITEM</button></td>
-                {/* <td><button onClick={() => this.handleDeleteItem(item.id, item.user_id)}>DELETE ITEM</button></td> */}
                 {/* <td>USER NAME EVENTUALLY HERE</td> */}
+                <button onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) this.handleDeleteItem(item.id) }}>
+                    Delete
+                </button>
             </tr>)
         })
 

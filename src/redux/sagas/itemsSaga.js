@@ -41,9 +41,9 @@ function* removeItem(action) {
 
         // yield axios.delete(`/api/additem/${id}`, { user_id: action.payload })
         yield axios.delete(`/api/additem/${action.payload}`)
-        yield put({
-            type: 'FETCH_ITEMS',
-        })
+        // yield put({
+        //     type: 'FETCH_ITEMS',
+        // })
     } catch (error) {
         console.log(error);
     }
