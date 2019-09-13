@@ -22,7 +22,7 @@ function* removeEvent(action) {
     try{
         // console.log('this is the delete payload', action.payload);
         let id = action.payload.id
-        console.log(id);
+        // console.log(id);
 
         yield axios.delete(`/api/usereventpage/${id}`, {user_id: action.payload})
         yield put({

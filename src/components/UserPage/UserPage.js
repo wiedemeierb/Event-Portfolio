@@ -15,6 +15,7 @@ class UserPage extends Component {
   handleDelete(id, user_id){
     // console.log(id);
     // console.log(user_id);
+    alert('Are You Sure?')
     this.props.dispatch({ type: 'DELETE_EVENT', payload: {id: id, userId: user_id } })
   }
 
