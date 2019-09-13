@@ -28,6 +28,7 @@ class CreateEvent extends Component {
           description: this.state.description,
         }
       });
+      alert('EVENT CREATED SUCCESSFULLY')
       this.props.history.push('/home')
     // } else {
     //   this.props.dispatch({ type: 'REGISTRATION_INPUT_ERROR' });
