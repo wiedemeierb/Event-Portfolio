@@ -13,7 +13,6 @@ class UserPage extends Component {
   }
 
   handleDelete(id, user_id){
-    // console.log('handleDelete is being clicked')
     // console.log(id);
     // console.log(user_id);
     this.props.dispatch({ type: 'DELETE_EVENT', payload: {id: id, userId: user_id } })

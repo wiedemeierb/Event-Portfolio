@@ -14,7 +14,10 @@ class CreateEvent extends Component {
   createEvent = (event) => {
     event.preventDefault();
 
-    if (this.state.event_name && this.state.location && this.state.date && this.state.time && this.state.description) {
+    if (this.state.event_name === '' || this.state.location === '' || this.state.date === '' || this.state.time === '' || this.state.description === '') {
+      alert('PLEASE FILL OUT ALL FIELDS');
+      return;
+    } 
       this.props.dispatch({
         type: 'CREATE_EVENT',
         payload: {
@@ -23,14 +26,13 @@ class CreateEvent extends Component {
           date: this.state.date,
           time: this.state.time,
           description: this.state.description,
-          // user_id: this.props.state.user.id
         }
       });
       this.props.history.push('/home')
-    } else {
-      this.props.dispatch({ type: 'REGISTRATION_INPUT_ERROR' });
-    }
-  } // end registerUser
+    // } else {
+    //   this.props.dispatch({ type: 'REGISTRATION_INPUT_ERROR' });
+    // }
+  }
   
 
   handleInputChangeFor = propertyName => (event) => {

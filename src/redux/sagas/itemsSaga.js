@@ -23,6 +23,9 @@ function* addItem(action) {
         //  passes item from payload to server
         yield axios.post('/api/additem', action.payload);
         // console.log('addItem post', action.payload)
+        // yield put({
+        //     type: 'FETCH_ITEMS', -- NEED TO START THE GET TO REFRESH THE PAGE
+        // });
     } catch (error) {
         console.log('Error with create event', error);
     }

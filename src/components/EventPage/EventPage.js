@@ -6,6 +6,9 @@ class EventPage extends Component {
 
     componentDidMount() {
         this.props.dispatch({ type: 'FETCH_ALLUSERS'})
+        this.props.dispatch({
+            type: 'FETCH_EVENT',
+            payload: this.props.match.params.id})
         this.props.dispatch({ 
             type: 'FETCH_ITEMS',
             payload: {id: Number(this.props.match.params.id)}})
@@ -34,6 +37,11 @@ class EventPage extends Component {
     handleClickAddItem = (event) => {
         event.preventDefault();
         // console.log('handleClickAddItem operational:', this.state)
+        //ALERT USER TO FILL OUT BOTH INPUT FIELDS
+        if (this.state.added_item === '' || this.state.cost === '') {
+            alert('PLEASE FILL OUT BOTH ITEM AND COST');
+            return;
+        }
         this.props.dispatch({
             type: 'ADD_ITEM',
             payload: this.state,
@@ -70,7 +78,7 @@ class EventPage extends Component {
 
         return(
         <div>
-            <h1>Welcome to:</h1>
+            <h1>Welcome!</h1>
             <table className="table table-hover table-bordered">
                 <thead>
                     <tr>
