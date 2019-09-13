@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
     pool.query(queryText)
     .then(result => res.send(result.rows))
     .catch(error => {
-        console.log('Error in GET route for allusers.router', error)
+        console.log('Error in GET for allusers.router', error)
         res.sendStatus(418)
     })
 });

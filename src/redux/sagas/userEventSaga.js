@@ -13,8 +13,8 @@ function* fetchUserEvents() {
         type: 'SET_USEREVENTS', 
         payload: response.data
     });
-    } catch (err) {
-        console.log('User Event get request failed', err);
+    } catch (error) {
+        console.log('User Event get request failed', error);
     }
 }
 

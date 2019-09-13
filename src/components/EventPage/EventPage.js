@@ -6,6 +6,7 @@ class EventPage extends Component {
 
     componentDidMount() {
         this.props.dispatch({ type: 'FETCH_ALLUSERS'})
+        this.props.dispatch({ type: 'FETCH_ITEMS'})
     };
 
     state = {
@@ -30,7 +31,7 @@ class EventPage extends Component {
 
     handleClickAddItem = (event) => {
         event.preventDefault();
-        console.log('handleClickAddItem operational:', this.state)
+        // console.log('handleClickAddItem operational:', this.state)
         this.props.dispatch({
             type: 'ADD_ITEM',
             payload: this.state,
@@ -122,7 +123,8 @@ const mapStateToProps = state => ({
     user: state.user,
     userEvent: state.userEvent,
     allUsers: state.allUsers,
-    event: state.event
+    event: state.event,
+    items: state.items
 
 });
 

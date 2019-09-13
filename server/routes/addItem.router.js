@@ -6,7 +6,14 @@ const router = express.Router();
  * GET route template
  */
 router.get('/', (req, res) => {
-
+    let queryText = 'SELECT * FROM "items";';
+    console.log('in GET router for addItems')
+    pool.query(queryText)
+    .then(result => res.send(result.rows))
+    .catch(error => {
+        console.log('Error in GET router for addItems', error)
+        res.sendStatus(418)
+    })
 });
 
 /**
@@ -28,5 +35,6 @@ router.post('/', (req, res) => {
         res.sendStatus(500)
     });
 });
+
 
 module.exports = router;
