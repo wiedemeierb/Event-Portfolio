@@ -18,8 +18,25 @@ function* fetchAllEventUsers(action){
     }
 }
 
+function* addEventUser(action) {
+    console.log('in addEventUserSaga')
+    try {
+        //passes user from payload to server
+        yield axios.post(`/api/addeventuser`, action.payload);
+        //console.log('addEventUser post', action.payload)
+
+        yield put({
+            type: 'FETCH_ALLEVENTUSERS',
+            // payload: this.props.match.params.id
+        });
+    }catch(error) {
+        console.log('Error with addEventUser POST in Saga', error);
+    }
+};
+
 function* addEventUserSaga() {
     yield takeLatest('FETCH_ALLEVENTUSERS', fetchAllEventUsers);
+    yield takeLatest('ADD_EVENTUSER', addEventUser);
 }
 
 

@@ -1,11 +1,13 @@
 {
     "cSpell.ignoreWords": [
+        "add",
         "addeventuser",
         "additem",
         "alleventusers",
         "allusers",
         "createevent",
         "eventpage",
+        "eventuser",
         "fetch",
         "userevent",
         "usereventpage",
