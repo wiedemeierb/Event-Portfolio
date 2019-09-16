@@ -22,7 +22,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    console.log('in POST router for addEventUser', req.body);
+    // console.log('in POST router for addEventUser', req.body);
     const added_user = req.body.user_id;
     const event = req.body.event_id;
 

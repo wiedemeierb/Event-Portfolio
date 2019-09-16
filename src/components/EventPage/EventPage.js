@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Moment from 'react-moment';
 import { actionChannel } from 'redux-saga/effects';
+import { stringify } from 'querystring';
 
 class EventPage extends Component {
 
@@ -23,6 +24,7 @@ class EventPage extends Component {
         added_item: '',
         cost: '',
         event_id: this.props.match.params.id,
+        user_id: '',
     };
 
     handleChangeItem = (event) => {
@@ -53,14 +55,27 @@ class EventPage extends Component {
         })
     }
 
+    handleClickAddUser = () =>{
+        // console.log('handleClickAddUser operational', this.state.value )
+        this.props.dispatch({
+            type: 'ADD_EVENTUSER',
+            payload: this.state
+        })
+    }
+
+    handleChangeAddUser = (event) => {
+        this.setState({
+            user_id: event.target.value
+        })
+    }
+
     
     handleDeleteItem(id) {
-        // confirm("Are You Sure?")
         this.props.dispatch({ type: 'DELETE_ITEM', payload: { id: id, eventId: this.state.event_id}})
     }
 
     render(){
-        // console.log('this is state right now', this.props)
+        // console.log('this is state right now', this.state)
         let eventTable = this.props.event.map((item) => {
             return (<tr key={item.id}>
                 <td>{item.event_name}</td>
@@ -78,7 +93,7 @@ class EventPage extends Component {
                 <td>{attendee.phone_number}</td>
                     </tr>)
         })
-        // console.log('this is state right now addEventUser', this.props.addEventUser)
+        console.log('this is state right now addEventUser', this.props.addEventUser)
         let allAttendeeTable = this.props.addEventUser.map((allAttendee) => {
             return (<tr key={allAttendee.id}>
                 <td>{allAttendee.name}</td>
@@ -138,14 +153,19 @@ class EventPage extends Component {
                         {allAttendeeTable}
                     </tbody>
                 </table>
-                
-                <select>
+                <select defaultValue={'DEFAULT'} value={this.state.value} onChange={this.handleChangeAddUser}>
+                    <option disabled value="DEFAULT">Choose An Attendee</option>
                     {this.props.allUsers.map(allAttendees => {
-                            return (
-                                <option value={allAttendees.id} key={allAttendees.id}>{allAttendees.name}</option>
-                            )})}
+                        return (
+                            <option value={allAttendees.id} key={allAttendees.id}>{allAttendees.name}</option>
+                        )})}
+
                 </select>
-                <button>Add Attendee</button>
+                <button onClick={() => this.handleClickAddUser()}>Add Attendee</button>
+           
+                {/* <button onClick={() => this.handleClickAddUser(this.props.allUsers.name)}>Add Attendee</button> */}
+
+
                 
             <h1>Items Needed:</h1>
             <table className="table table-hover table-bordered">
