@@ -10,6 +10,11 @@ class EventPage extends Component {
         this.props.dispatch({
             type: 'FETCH_EVENT',
             payload: this.props.match.params.id})
+        this.props.dispatch({
+            type: 'FETCH_ALLEVENTUSERS',
+            payload: this.props.match.params.id
+            // payload: {id: Number(this.props.match.params.id)}
+        })
         this.props.dispatch({ 
             type: 'FETCH_ITEMS',
             payload: {id: Number(this.props.match.params.id)}})

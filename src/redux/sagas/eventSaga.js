@@ -4,10 +4,7 @@ import { put, takeLatest } from 'redux-saga/effects';
 // worker Saga: will be fired on "FETCH_USER" actions
 function* fetchEvent(action) {
     try {
-        // const config = {
-        //     headers: { 'Content-Type': 'application/json' },
-        //     withCredentials: true,
-        // };
+       
         // console.log('in fetchEventSaga')
         const response = yield axios.get(`/api/eventpage/${action.payload}`);
         // console.log('in GET eventSaga response', response.data)

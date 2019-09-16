@@ -1,10 +1,11 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-function* fetchAllEventUsers(){
+function* fetchAllEventUsers(action){
     try{
         //GET ALL USERS FROM SERVER
-        const response = yield axios.get(`/api/addeventuser`);
+        console.log('in FETCHALLUSER EVENTS....', action.payload)
+        const response = yield axios.get(`/api/addeventuser/${action.payload}`);
         //SEND TO REDUX
         console.log('addEventUserSaga response:', response.data)
         //PLACE IN DISPATCH
