@@ -80,6 +80,7 @@ class UserPage extends Component {
 const mapStateToProps = state => ({
         user: state.user,
         userEvents: state.userEvents,
+        addEventUser: state.addEventUser,
       });
       
 // this allows us to use <App /> in index.js

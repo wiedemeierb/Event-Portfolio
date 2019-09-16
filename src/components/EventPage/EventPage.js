@@ -13,7 +13,6 @@ class EventPage extends Component {
         this.props.dispatch({
             type: 'FETCH_ALLEVENTUSERS',
             payload: this.props.match.params.id
-            // payload: {id: Number(this.props.match.params.id)}
         })
         this.props.dispatch({ 
             type: 'FETCH_ITEMS',
@@ -57,13 +56,12 @@ class EventPage extends Component {
     
     handleDeleteItem(id) {
         // confirm("Are You Sure?")
-        
         this.props.dispatch({ type: 'DELETE_ITEM', payload: { id: id, eventId: this.state.event_id}})
     }
 
     render(){
         // console.log('this is state right now', this.props)
-        let table = this.props.event.map((item) => {
+        let eventTable = this.props.event.map((item) => {
             return (<tr key={item.id}>
                 <td>{item.event_name}</td>
                 <td>{item.location}</td>
@@ -73,12 +71,20 @@ class EventPage extends Component {
                     </tr>)
         })
         
-        let attendeeTable = [this.props.user].map((attendee) => {
+        let organizerTable = [this.props.user].map((attendee) => {
             return (<tr key={attendee.id}>
                 <td>{attendee.name}</td>
                 <td>{attendee.username}</td>
-                <td><button><a href={`http://venmo.com/${attendee.payment_username}`}>Click To Pay</a></button></td>
+                <td>{attendee.phone_number}</td>
                     </tr>)
+        })
+        // console.log('this is state right now addEventUser', this.props.addEventUser)
+        let allAttendeeTable = this.props.addEventUser.map((allAttendee) => {
+            return (<tr key={allAttendee.id}>
+                <td>{allAttendee.name}</td>
+                <td>{allAttendee.username}</td>
+                <td><button><a href={`http://venmo.com/${allAttendee.payment_username}`}>Click To Pay</a></button></td>
+            </tr>)
         })
 
         let itemTable = this.props.items.map((item) => {
@@ -104,11 +110,22 @@ class EventPage extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    {table}
+                    {eventTable}
                 </tbody>
+                    <h2>Organizer:</h2>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone Number</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {organizerTable}
+                    </tbody>
             </table>
 
-                <h1>Attendees:</h1>
+                <h2>Attendees:</h2>
                 <table className="table table-hover table-bordered">
                     <thead>
                         <tr>
@@ -118,7 +135,7 @@ class EventPage extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {attendeeTable}
+                        {allAttendeeTable}
                     </tbody>
                 </table>
                 
@@ -156,8 +173,8 @@ const mapStateToProps = state => ({
     userEvent: state.userEvent,
     allUsers: state.allUsers,
     event: state.event,
-    items: state.items
-
+    items: state.items,
+    addEventUser: state.addEventUser,
 });
 
 // this allows us to use <App /> in index.js
