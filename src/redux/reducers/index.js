@@ -7,6 +7,7 @@ import allUsers from './allUsersReducer';
 import event from './eventReducer';
 import items from './itemReducer';
 import addEventUser from './addEventUserReducer';
+import userAttendingEvents from './userAttendingEventsReducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -23,6 +24,7 @@ const rootReducer = combineReducers({
   event,
   items,
   addEventUser,
+  userAttendingEvents,
 });
 
 export default rootReducer;

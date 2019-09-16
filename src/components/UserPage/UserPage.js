@@ -10,12 +10,19 @@ import Moment from 'react-moment';
 class UserPage extends Component {
   componentDidMount(){
     this.props.dispatch({ type: 'FETCH_USEREVENTS' })
+    this.props.dispatch({
+      type: 'FETCH_USER_ATTENDING_EVENTS',
+      payload: this.props.user.id
+    })
   }
 
   handleDelete(id, user_id){
     // console.log(id);
     // console.log(user_id);
-    this.props.dispatch({ type: 'DELETE_EVENT', payload: {id: id, userId: user_id } })
+    this.props.dispatch({
+      type: 'DELETE_EVENT', 
+      payload: {id: id, userId: user_id }
+    })
   }
 
   handleClick = (id) => {
@@ -31,13 +38,18 @@ class UserPage extends Component {
 
   render(){
     // console.log('this is state right now', this.props)
+
+    // let userAttendingEventsTable = this.props.userAttendingEvents.map((events) => {
+    //   return (<tr> key={events.id}
+
+    //   </tr>)
+    // })
     let table = this.props.userEvents.map((item) => {
       return (<tr key={item.id}><td>{item.event_name}</td>
                   <td>{item.location}</td>
                   <td><Moment format="MM/DD/YYYY">{item.date}</Moment></td>
                   <td>{item.time}</td>
                   <td><button onClick={()=>this.handleClick(item.id)}>View Event</button></td>
-                  {/* <td><button onClick={() => this.handleDelete(item.id, item.user_id)}>Delete</button></td> */}
         <td><button onClick={() => { if (window.confirm('Are you sure you wish to delete this event?')) this.handleDelete(item.id, item.user_id) }}>Delete</button></td>
               </tr>)
     })
@@ -55,11 +67,11 @@ class UserPage extends Component {
         <table className="table table-hover table-bordered">
           <thead>
             <tr>
-              <th>Event Name</th>
+              <th>Organized Events</th>
               <th>Location</th>
               <th>Date</th>
               <th>Time</th>
-              <th>View</th>
+              <th>View Event Details</th>
               <th>Delete</th>
             </tr>
           </thead>
@@ -81,6 +93,7 @@ const mapStateToProps = state => ({
         user: state.user,
         userEvents: state.userEvents,
         addEventUser: state.addEventUser,
+        userAttendingEvents: state.userAttendingEvents,
       });
       
 // this allows us to use <App /> in index.js

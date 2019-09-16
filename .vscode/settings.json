@@ -9,6 +9,7 @@
         "eventpage",
         "eventuser",
         "fetch",
+        "userattendingevents",
         "userevent",
         "usereventpage",
         "userevents",

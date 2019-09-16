@@ -93,7 +93,7 @@ class EventPage extends Component {
                 <td>{attendee.phone_number}</td>
                     </tr>)
         })
-        console.log('this is state right now addEventUser', this.props.addEventUser)
+        // console.log('this is state right now addEventUser', this.props.addEventUser)
         let allAttendeeTable = this.props.addEventUser.map((allAttendee) => {
             return (<tr key={allAttendee.id}>
                 <td>{allAttendee.name}</td>
@@ -124,6 +124,7 @@ class EventPage extends Component {
                         <th>Description</th>
                     </tr>
                 </thead>
+                    
                 <tbody>
                     {eventTable}
                 </tbody>
@@ -162,11 +163,7 @@ class EventPage extends Component {
 
                 </select>
                 <button onClick={() => this.handleClickAddUser()}>Add Attendee</button>
-           
-                {/* <button onClick={() => this.handleClickAddUser(this.props.allUsers.name)}>Add Attendee</button> */}
-
-
-                
+       
             <h1>Items Needed:</h1>
             <table className="table table-hover table-bordered">
                 <thead>

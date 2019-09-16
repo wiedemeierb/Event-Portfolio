@@ -15,6 +15,8 @@ const eventPageRouter = require('./routes/eventpage.router');
 const allUsersRouter = require('./routes/allusers.router')
 const addItemRouter = require('./routes/addItem.router')
 const addEventUserRouter = require('./routes/addeventuser.router')
+const userAttendingEvents = require('./routes/userattendingevents.router')
+
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -35,6 +37,7 @@ app.use('/api/eventpage', eventPageRouter)
 app.use('/api/allusers', allUsersRouter)
 app.use('/api/additem', addItemRouter)
 app.use('/api/addeventuser', addEventUserRouter)
+app.use('/api/userattendingevents', userAttendingEvents)
 
 // Serve static files
 app.use(express.static('build'));

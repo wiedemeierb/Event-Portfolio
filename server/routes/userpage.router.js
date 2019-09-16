@@ -46,17 +46,3 @@ router.post('/', (req, res) => {
 });
 
 module.exports = router;
-
-// router.delete('/:id', (req, res) => {
-//     // console.log(req.body, req.user);
-
-//     if (req.isAuthenticated()) {
-//         let queryText = `DELETE FROM "event" WHERE "user_id" = $1 AND "id" = $2`
-//         pool.query(queryText, [req.user.id, req.params.id])
-//             .then(results => res.sendStatus(201))
-//             .catch(error => {
-//                 console.log('error in server side DELETE', error);
-//                 res.sendStatus(418)
-//             })
-//     } else { 403 }
-// });

@@ -8,6 +8,7 @@ import allUsersSaga from './allUsersSaga';
 import eventSaga from './eventSaga';
 import itemsSaga from './itemsSaga';
 import addEventUserSaga from './addEventUserSaga';
+import userAttendingEventsSaga from './userAttendingEventsSaga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -27,5 +28,6 @@ export default function* rootSaga() {
     eventSaga(),
     itemsSaga(),
     addEventUserSaga(),
+    userAttendingEventsSaga(),
   ]);
 }
