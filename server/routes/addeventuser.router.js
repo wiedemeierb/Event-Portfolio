@@ -21,6 +21,20 @@ router.get('/:id', (req, res) => {
         })
 });
 
+router.post('/', (req, res) => {
+    console.log('in POST router for addEventUser', req.body);
+    const added_user = req.body.user_id;
+    const event = req.body.event_id;
+
+    const queryText = `INSERT INTO "user_event" (user_id, event_id) VALUES ($1, $2)`;
+    pool.query(queryText, [added_user, event])
+    .then(() => res.sendStatus(201))
+    .catch((error) => {
+        console.log(error)
+        res.sendStatus(500)
+    });
+});
+
 /**
  * POST route template
  */
