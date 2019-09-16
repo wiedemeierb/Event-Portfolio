@@ -86,13 +86,13 @@ class EventPage extends Component {
                     </tr>)
         })
         
-        let organizerTable = [this.props.user].map((attendee) => {
-            return (<tr key={attendee.id}>
-                <td>{attendee.name}</td>
-                <td>{attendee.username}</td>
-                <td>{attendee.phone_number}</td>
-                    </tr>)
-        })
+        // let organizerTable = [this.props.user].map((attendee) => {
+        //     return (<tr key={attendee.id}>
+        //         <td>{attendee.name}</td>
+        //         <td>{attendee.username}</td>
+        //         <td>{attendee.phone_number}</td>
+        //             </tr>)
+        // })
         // console.log('this is state right now addEventUser', this.props.addEventUser)
         let allAttendeeTable = this.props.addEventUser.map((allAttendee) => {
             return (<tr key={allAttendee.id}>
@@ -128,7 +128,7 @@ class EventPage extends Component {
                 <tbody>
                     {eventTable}
                 </tbody>
-                    <h2>Organizer:</h2>
+                    {/* <h2>Organizer:</h2>
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -138,9 +138,8 @@ class EventPage extends Component {
                     </thead>
                     <tbody>
                         {organizerTable}
-                    </tbody>
+                    </tbody> */}
             </table>
-
                 <h2>Attendees:</h2>
                 <table className="table table-hover table-bordered">
                     <thead>
