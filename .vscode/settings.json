@@ -6,6 +6,7 @@
         "alleventusers",
         "allusers",
         "createevent",
+        "edit",
         "eventpage",
         "eventuser",
         "fetch",
@@ -13,6 +14,7 @@
         "userevent",
         "usereventpage",
         "userevents",
+        "userinfo",
         "userpage",
         "venmo"
     ]

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Moment from 'react-moment';
-import { actionChannel } from 'redux-saga/effects';
-import { stringify } from 'querystring';
+// import { actionChannel } from 'redux-saga/effects';
+// import { stringify } from 'querystring';
 
 class EventPage extends Component {
 
@@ -95,9 +95,10 @@ class EventPage extends Component {
         // })
         // console.log('this is state right now addEventUser', this.props.addEventUser)
         let allAttendeeTable = this.props.addEventUser.map((allAttendee) => {
-            return (<tr key={allAttendee.id}>
+            return (<tr key={allAttendee.name}>
                 <td>{allAttendee.name}</td>
                 <td>{allAttendee.username}</td>
+                {/* <td>{allAttendee.phone_number}</td> */}
                 <td><button><a href={`http://venmo.com/${allAttendee.payment_username}`}>Click To Pay</a></button></td>
             </tr>)
         })

@@ -8,8 +8,9 @@ import Footer from '../Footer/Footer';
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import CreateEvent from '../CreateEvent/CreateEvent';
-import EventPage from '../EventPage/EventPage'
-import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
+import EventPage from '../EventPage/EventPage';
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
+import Edit from '../Edit/Edit';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -53,6 +54,11 @@ class App extends Component {
             exact
             path="/eventpage/:id"
             component={EventPage}
+            />
+            <ProtectedRoute
+              exact
+              path="/edit"
+              component={Edit}
             />
 
             {/* If none of the other routes matched, we will show a 404. */}

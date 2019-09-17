@@ -35,6 +35,12 @@ class UserPage extends Component {
     this.props.history.push(`/eventpage/${id}`);
   }
 
+  handleEditClick = (id) => {
+    //MOVES USER TO /EDIT ON CLICK
+    // console.log('in edit click');
+    this.props.history.push('/edit')
+  } 
+
   render(){
     // console.log('this is state right now', this.props)
 
@@ -68,6 +74,7 @@ class UserPage extends Component {
           <p>Your Username/Email Address is: {this.props.user.username}</p>
           <p>Phone Number is: {this.props.user.phone_number}</p>
           <p>Venmo Username is: {this.props.user.payment_username}</p>
+          <button onClick={this.handleEditClick}>Edit User Information</button>
         </div>
 
         <table className="table table-hover table-bordered">
