@@ -8,8 +8,14 @@ class Edit extends Component {
         name: '',
         phone_number: '',
         payment_username: '',
+        id: 0,
     };
 
+    componentDidMount(){
+        this.setState({
+            id: this.props.user.id
+        })
+    }
     handleEmailChange = (event) => {
         // console.log(this.state.username);
         this.setState({
@@ -58,6 +64,8 @@ class Edit extends Component {
     }
 
     render(){
+        console.log(this.state)
+        
         return(
         <div>
         <div>

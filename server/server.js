@@ -12,10 +12,11 @@ const userRouter = require('./routes/user.router');
 const createEventRouter = require('./routes/createevent.router');
 const userPageRouter = require('./routes/userpage.router');
 const eventPageRouter = require('./routes/eventpage.router');
-const allUsersRouter = require('./routes/allusers.router')
-const addItemRouter = require('./routes/addItem.router')
-const addEventUserRouter = require('./routes/addeventuser.router')
-const userAttendingEvents = require('./routes/userattendingevents.router')
+const allUsersRouter = require('./routes/allusers.router');
+const addItemRouter = require('./routes/addItem.router');
+const addEventUserRouter = require('./routes/addeventuser.router');
+const userAttendingEvents = require('./routes/userattendingevents.router');
+const editRouter = require('./routes/edit.router');
 
 
 // Body parser middleware
@@ -32,12 +33,13 @@ app.use(passport.session());
 /* Routes */
 app.use('/api/user', userRouter);
 app.use('/api/event', createEventRouter);
-app.use('/api/usereventpage', userPageRouter)
-app.use('/api/eventpage', eventPageRouter)
-app.use('/api/allusers', allUsersRouter)
-app.use('/api/additem', addItemRouter)
-app.use('/api/addeventuser', addEventUserRouter)
-app.use('/api/userattendingevents', userAttendingEvents)
+app.use('/api/usereventpage', userPageRouter);
+app.use('/api/eventpage', eventPageRouter);
+app.use('/api/allusers', allUsersRouter);
+app.use('/api/additem', addItemRouter);
+app.use('/api/addeventuser', addEventUserRouter);
+app.use('/api/userattendingevents', userAttendingEvents);
+app.use('/api/edit', editRouter);
 
 // Serve static files
 app.use(express.static('build'));
