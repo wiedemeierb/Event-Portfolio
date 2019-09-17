@@ -2,9 +2,6 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
-/**
- * GET route template
- */
 router.get('/:id', (req, res) => {
     if (req.isAuthenticated()) {
         // console.log('req.user:', req.user.id);
@@ -22,13 +19,6 @@ router.get('/:id', (req, res) => {
                 res.sendStatus(500)
             })
     }
-});
-
-/**
- * POST route template
- */
-router.post('/', (req, res) => {
-
 });
 
 module.exports = router;

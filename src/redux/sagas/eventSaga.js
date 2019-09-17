@@ -13,6 +13,8 @@ function* fetchEvent(action) {
             type: 'SET_EVENT',
             payload: response.data
         });
+
+        //
     } catch (error) {
         console.log('User get request failed', error);
     }

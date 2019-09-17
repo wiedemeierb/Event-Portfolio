@@ -51,16 +51,15 @@ class Edit extends Component {
     } 
 
     editUserInformation = (event) => {
-        event.preventDefault();
-        // if (this.state.username === '' || this.state.name === '' || this.state.phone_number === '' || this.state.payment_username){
-        //     alert('PLEASE EDIT OR REFILL ALL EDIT FIELDS');
-        //     return;
-        // }
+        // event.preventDefault();
+        if (this.state.username === '' || this.state.name === '' || this.state.phone_number === '' || this.state.payment_username === ''){
+            alert('PLEASE EDIT OR REFILL ALL EDIT FIELDS');
+            return;
+        }
         this.props.dispatch({
             type: 'EDIT_USERINFO',
             payload: this.state
         })
-        alert('Edit Successfully Completed')
         this.props.history.push('/home')
     }
 
@@ -77,7 +76,7 @@ class Edit extends Component {
             <p>Venmo Username is: {this.props.user.payment_username}</p>
           <button onClick={this.handleCancelEdit}>Cancel Edits</button>
         </div>
-        <form onSubmit={this.editUserInformation}>
+        <form>
         <div>
             <p>Edit Email Address:</p>
             <input onChange={this.handleEmailChange} />
@@ -87,14 +86,12 @@ class Edit extends Component {
             <input onChange={this.handlePhoneChange} />
             <p>Edit Venmo Username:</p>
             <input onChange={this.handleVenmoChange} />
-            <button>Submit Edits</button>
-            {/* <button {if(window.confirm('Are you sure you wish to edit your User information?')}>Submit Edits</button> */}
+            <button onClick={() => { if (window.confirm('Are you sure you wish to edit your User information')) this.editUserInformation()}}>Submit Edits</button>
         </div>
         </form>
         </div>
         )
     }
-
 }
 
 const mapStateToProps = state => ({

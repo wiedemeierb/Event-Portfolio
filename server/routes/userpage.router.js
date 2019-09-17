@@ -2,9 +2,6 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
-/**
- * GET route template
- */
 router.get('/', (req, res) => {
     if(req.isAuthenticated()){
         // console.log('req.user:', req.user.id);
@@ -22,7 +19,6 @@ router.get('/', (req, res) => {
 
 router.delete('/:id', (req, res) => {
     // console.log(req.body, req.user);
-
     if(req.isAuthenticated()){
         let id = req.params.id
         let queryText1 = `DELETE FROM "items" WHERE "event_id" = $1`
@@ -37,12 +33,6 @@ router.delete('/:id', (req, res) => {
         })
         })
     }else{403}
-});
-/**
- * POST route template
- */
-router.post('/', (req, res) => {
-
 });
 
 module.exports = router;

@@ -2,17 +2,6 @@ const express = require('express');
 const pool = require('../modules/pool');
 const eventRouter = express.Router();
 
-
-/**
- * GET route template
- */
-eventRouter.get('/', (req, res) => {
-
-});
-
-/**
- * POST route template
- */
 eventRouter.post('/createevent', (req, res) => {
     // console.log('got to eventRouter POST')
     const event_name = req.body.event_name;
@@ -22,7 +11,6 @@ eventRouter.post('/createevent', (req, res) => {
     const time = req.body.time;
     const description = req.body.description;
     const user_id = req.user.id;
-
     const queryText = 'INSERT INTO "event" (event_name, location, date, time, description, user_id) VALUES ($1, $2, $3, $4, $5, $6)';
     pool.query(queryText, [event_name, location, date, time, description, user_id])
     .then(() => res.sendStatus(201))
@@ -31,8 +19,6 @@ eventRouter.post('/createevent', (req, res) => {
         res.sendStatus(500)
     });
 });
-
-
 
 eventRouter.post('/logout', (req, res) => {
     // Use passport's built-in method to log out the user

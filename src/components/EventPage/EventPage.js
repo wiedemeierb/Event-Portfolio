@@ -83,9 +83,14 @@ class EventPage extends Component {
                 <td><Moment format="MM/DD/YYYY">{item.date}</Moment></td>
                 <td>{item.time}</td>
                 <td>{item.description}</td>
+                {/* <td>{item.user_id}</td> */}
                     </tr>)
         })
         
+//filter all users for the organizer. .filter
+//then
+//make a row with that organizer
+
         // let organizerTable = [this.props.user].map((attendee) => {
         //     return (<tr key={attendee.id}>
         //         <td>{attendee.name}</td>
@@ -129,7 +134,7 @@ class EventPage extends Component {
                 <tbody>
                     {eventTable}
                 </tbody>
-                    {/* <h2>Organizer:</h2>
+                    <h2>Organizer:</h2>
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -138,8 +143,8 @@ class EventPage extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {organizerTable}
-                    </tbody> */}
+                        {/* {organizerTable} */}
+                    </tbody>
             </table>
                 <h2>Attendees:</h2>
                 <table className="table table-hover table-bordered">

@@ -3,18 +3,14 @@ import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import Moment from 'react-moment';
 
-// this could also be written with destructuring parameters as:
-// const UserPage = ({ user }) => (
-// and then instead of `props.user.username` you could use `user.username`
 
 class UserPage extends Component {
   componentDidMount(){
     this.props.dispatch({ type: 'FETCH_USER' })
     this.props.dispatch({ type: 'FETCH_USEREVENTS' })
     this.props.dispatch({
-      type: 'FETCH_USER_ATTENDING_EVENTS',
-      payload: this.props.user.id
-    })
+                          type: 'FETCH_USER_ATTENDING_EVENTS',
+                          payload: this.props.user.id})
   }
 
   handleDelete(id, user_id){
@@ -28,6 +24,7 @@ class UserPage extends Component {
 
   handleClick = (id) => {
     // console.log('handleClick operational:')
+    // MOVES USER TO VIEW EVENT
     this.props.dispatch({
       type: 'FETCH_EVENT',
       payload: id
@@ -51,8 +48,8 @@ class UserPage extends Component {
               <td>{events.location}</td>
               <td><Moment format="MM/DD/YYYY">{events.date}</Moment></td>
               <td>{events.time}</td>
-        <td><button onClick={() => this.handleClick(events.event_id)}>View Event</button></td>
-      </tr>)
+              <td><button onClick={() => this.handleClick(events.event_id)}>View Event</button></td>
+              </tr>)
     })
     let table = this.props.userEvents.map((item) => {
       return (<tr key={item.id}>
@@ -61,11 +58,11 @@ class UserPage extends Component {
                   <td><Moment format="MM/DD/YYYY">{item.date}</Moment></td>
                   <td>{item.time}</td>
                   <td><button onClick={()=>this.handleClick(item.id)}>View Event</button></td>
-        <td><button onClick={() => { if (window.confirm('Are you sure you wish to delete this event?')) this.handleDelete(item.id, item.user_id) }}>Delete</button></td>
+                  <td><button onClick={() => { if (window.confirm('Are you sure you wish to delete this event?')) 
+                      this.handleDelete(item.id, item.user_id) }}>Delete</button></td>
               </tr>)
     })
 
-    
     return (
       <div>
         <div>
@@ -100,10 +97,6 @@ class UserPage extends Component {
       }
     };
       
-      
-      // Instead of taking everything from state, we just want the user info.
-      // if you wanted you could write this code like this:
-// const mapStateToProps = ({user}) => ({user});
 const mapStateToProps = state => ({
         user: state.user,
         userEvents: state.userEvents,

@@ -2,9 +2,7 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
-/**
- * PUT route template
- */
+// EDIT ROUTER
 router.put('/:id', (req, res) => {
     // console.log('req.params is:', req.params);
     // console.log('req.body is:', req.body)
@@ -13,7 +11,6 @@ router.put('/:id', (req, res) => {
     let payment_username = req.body.payment_username;
     let phone_number = req.body.phone_number;
     let username = req.body.username;
-
     const queryText = `
         UPDATE "user" SET "name"=$1, 
         "payment_username"=$2,
@@ -29,17 +26,4 @@ router.put('/:id', (req, res) => {
         })
 });
 
-/**
- * POST route template
- */
-router.post('/', (req, res) => {
-
-});
-
 module.exports = router;
-
-// username: '',
-//         name: '',
-//         phone_number: '',
-//         payment_username: '',
-//         id: 0,
