@@ -86,18 +86,13 @@ class EventPage extends Component {
                 {/* <td>{item.user_id}</td> */}
                     </tr>)
         })
-        
-//filter all users for the organizer. .filter
-//then
-//make a row with that organizer
+        //FILTER TO GET ORGANIZER AND RENDER
+        let result = this.props.event[0] && (this.props.allUsers.filter((eventCoordinator) => {return eventCoordinator.id === this.props.event[0].user_id}))
+        let organizer = {}
+        if (result && result[0]){
+            organizer = result[0]
+        }
 
-        // let organizerTable = [this.props.user].map((attendee) => {
-        //     return (<tr key={attendee.id}>
-        //         <td>{attendee.name}</td>
-        //         <td>{attendee.username}</td>
-        //         <td>{attendee.phone_number}</td>
-        //             </tr>)
-        // })
         // console.log('this is state right now addEventUser', this.props.addEventUser)
         let allAttendeeTable = this.props.addEventUser.map((allAttendee) => {
             return (<tr key={allAttendee.name}>
@@ -139,10 +134,16 @@ class EventPage extends Component {
                             <th>Name</th>
                             <th>Email</th>
                             <th>Phone Number</th>
+                            <th>Venmo Username</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {/* {organizerTable} */}
+                        <tr>
+                            <td>{organizer.name}</td>
+                            <td>{organizer.username}</td>
+                            <td>{organizer.phone_number}</td>
+                            <td><button><a href={`http://venmo.com/${organizer.payment_username}`}>Click To Pay</a></button></td>
+                        </tr>
                     </tbody>
             </table>
                 <h2>Attendees:</h2>
