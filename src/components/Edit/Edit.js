@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Moment from 'react-moment';
+
 
 class Edit extends Component {
     state = {
@@ -60,13 +60,12 @@ class Edit extends Component {
             type: 'EDIT_USERINFO',
             payload: this.state
         })
-        // this.props.history.push('/home')
-        
+        alert('Edit Successfully Completed')
+        this.props.history.push('/home')
     }
 
     render(){
         // console.log(this.state)
-        
         return(
         <div>
         <div>

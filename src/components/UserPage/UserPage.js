@@ -9,6 +9,7 @@ import Moment from 'react-moment';
 
 class UserPage extends Component {
   componentDidMount(){
+    this.props.dispatch({ type: 'FETCH_USER' })
     this.props.dispatch({ type: 'FETCH_USEREVENTS' })
     this.props.dispatch({
       type: 'FETCH_USER_ATTENDING_EVENTS',
