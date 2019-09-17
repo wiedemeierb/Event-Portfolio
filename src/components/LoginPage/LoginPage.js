@@ -9,7 +9,6 @@ class LoginPage extends Component {
 
   login = (event) => {
     event.preventDefault();
-
     if (this.state.username && this.state.password) {
       this.props.dispatch({
         type: 'LOGIN',
@@ -36,7 +35,7 @@ class LoginPage extends Component {
           <h2
             className="alert"
             role="alert"
-          >
+            >
             {this.props.errors.loginMessage}
           </h2>
         )}
@@ -89,9 +88,6 @@ class LoginPage extends Component {
   }
 }
 
-// Instead of taking everything from state, we just want the error messages.
-// if you wanted you could write this code like this:
-// const mapStateToProps = ({errors}) => ({ errors });
 const mapStateToProps = state => ({
   errors: state.errors,
 });

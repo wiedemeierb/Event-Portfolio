@@ -4,8 +4,7 @@ const addEventUserReducer = (state = [], action) => {
             return action.payload;
         default:
             return state;
-    }
-};
+    }};
 
 //state.addEventUser
 export default addEventUserReducer;

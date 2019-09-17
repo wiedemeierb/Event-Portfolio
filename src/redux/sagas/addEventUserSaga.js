@@ -24,20 +24,17 @@ function* addEventUser(action) {
         //passes user from payload to server
         yield axios.post(`/api/addeventuser`, action.payload);
         // console.log('addEventUser post', action.payload)
-
         yield put({
             type: 'FETCH_ALLEVENTUSERS',
             payload: action.payload.event_id
         });
     }catch(error) {
         console.log('Error with addEventUser POST in Saga', error);
-    }
-};
+    }};
 
 function* addEventUserSaga() {
     yield takeLatest('FETCH_ALLEVENTUSERS', fetchAllEventUsers);
     yield takeLatest('ADD_EVENTUSER', addEventUser);
 }
-
 
 export default addEventUserSaga;

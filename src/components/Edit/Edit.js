@@ -51,7 +51,6 @@ class Edit extends Component {
     } 
 
     editUserInformation = (event) => {
-        // event.preventDefault();
         if (this.state.username === '' || this.state.name === '' || this.state.phone_number === '' || this.state.payment_username === ''){
             alert('PLEASE EDIT OR REFILL ALL EDIT FIELDS');
             return;
@@ -103,5 +102,4 @@ const mapStateToProps = state => ({
     addEventUser: state.addEventUser,
 });
 
-// this allows us to use <App /> in index.js
 export default connect(mapStateToProps)(Edit);

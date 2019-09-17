@@ -4,7 +4,6 @@ const userAttendingEventsReducer = (state = [], action) => {
             return action.payload;
         default:
             return state;
-    }
-}
+    }};
 
 export default userAttendingEventsReducer;

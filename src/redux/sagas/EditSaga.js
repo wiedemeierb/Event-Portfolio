@@ -12,8 +12,7 @@ function* editUserInfo(action) {
             payload: response.data.id
         })
     }catch(error) {
-        console.log('error in editUserInfo Saga', error)}
-};
+        console.log('error in editUserInfo Saga', error)}};
 
 function* editSaga(){
     yield takeLatest('EDIT_USERINFO', editUserInfo)

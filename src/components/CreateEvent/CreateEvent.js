@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { HashRouter as Router } from 'react-router-dom';
-// if needed with routers Route, Redirect, Switch,
+
 class CreateEvent extends Component {
   state = {
     event_name: '',
@@ -28,11 +28,9 @@ class CreateEvent extends Component {
           description: this.state.description,
         }
       });
-      // alert('EVENT CREATED SUCCESSFULLY')
       this.props.history.push('/home')
   }
   
-
   handleInputChangeFor = propertyName => (event) => {
     this.setState({
       [propertyName]: event.target.value,
@@ -122,9 +120,6 @@ class CreateEvent extends Component {
   }
 }
 
-// Instead of taking everything from state, we just want the error messages.
-// if you wanted you could write this code like this:
-// const mapStateToProps = ({errors}) => ({ errors });
 const mapStateToProps = state => ({
   errors: state.errors,
 });

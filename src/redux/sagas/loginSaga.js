@@ -56,8 +56,7 @@ function* logoutUser(action) {
 
   } catch (error) {
     console.log('Error with user logout:', error);
-  }
-}
+  }}
 
 function* loginSaga() {
   yield takeLatest('LOGIN', loginUser);

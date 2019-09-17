@@ -3,13 +3,11 @@ import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import Moment from 'react-moment';
 
-
 class UserPage extends Component {
   componentDidMount(){
     this.props.dispatch({ type: 'FETCH_USER' })
     this.props.dispatch({ type: 'FETCH_USEREVENTS' })
-    this.props.dispatch({
-                          type: 'FETCH_USER_ATTENDING_EVENTS',
+    this.props.dispatch({ type: 'FETCH_USER_ATTENDING_EVENTS',
                           payload: this.props.user.id})
   }
 
@@ -41,14 +39,13 @@ class UserPage extends Component {
 
   render(){
     // console.log('this is state right now', this.props)
-
     let userAttendingEventsTable = this.props.userAttendingEvents.map((events) => {
       return (<tr key={events.event_id}>
-              <td>{events.event_name}</td>
-              <td>{events.location}</td>
-              <td><Moment format="MM/DD/YYYY">{events.date}</Moment></td>
-              <td>{events.time}</td>
-              <td><button onClick={() => this.handleClick(events.event_id)}>View Event</button></td>
+                <td>{events.event_name}</td>
+                <td>{events.location}</td>
+                <td><Moment format="MM/DD/YYYY">{events.date}</Moment></td>
+                <td>{events.time}</td>
+                <td><button onClick={() => this.handleClick(events.event_id)}>View Event</button></td>
               </tr>)
     })
     let table = this.props.userEvents.map((item) => {
@@ -93,9 +90,7 @@ class UserPage extends Component {
         </table>
         <LogOutButton className="log-in" />
         </div>
-        )
-      }
-    };
+        )}};
       
 const mapStateToProps = state => ({
         user: state.user,
@@ -104,5 +99,4 @@ const mapStateToProps = state => ({
         userAttendingEvents: state.userAttendingEvents,
       });
       
-// this allows us to use <App /> in index.js
 export default connect(mapStateToProps)(UserPage);

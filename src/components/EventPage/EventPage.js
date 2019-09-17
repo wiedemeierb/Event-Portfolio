@@ -7,7 +7,8 @@ import Moment from 'react-moment';
 class EventPage extends Component {
 
     componentDidMount() {
-        this.props.dispatch({ type: 'FETCH_ALLUSERS'})
+        this.props.dispatch({ 
+            type: 'FETCH_ALLUSERS'})
         this.props.dispatch({
             type: 'FETCH_EVENT',
             payload: this.props.match.params.id})
@@ -69,7 +70,6 @@ class EventPage extends Component {
         })
     }
 
-    
     handleDeleteItem(id) {
         this.props.dispatch({ type: 'DELETE_ITEM', payload: { id: id, eventId: this.state.event_id}})
     }
@@ -103,7 +103,6 @@ class EventPage extends Component {
             return (<tr key={allAttendee.name}>
                 <td>{allAttendee.name}</td>
                 <td>{allAttendee.username}</td>
-                {/* <td>{allAttendee.phone_number}</td> */}
                 <td><button><a href={`http://venmo.com/${allAttendee.payment_username}`}>Click To Pay</a></button></td>
             </tr>)
         })
@@ -165,11 +164,10 @@ class EventPage extends Component {
                         return (
                             <option value={allAttendees.id} key={allAttendees.id}>{allAttendees.name}</option>
                         )})}
-
                 </select>
                 <button onClick={() => this.handleClickAddUser()}>Add Attendee</button>
        
-            <h1>Items Needed:</h1>
+            <h2>Items Needed:</h2>
             <table className="table table-hover table-bordered">
                 <thead>
                     <tr>
@@ -186,9 +184,7 @@ class EventPage extends Component {
             <input onChange={this.handleChangeCost} type='text' placeholder="Cost" />
             <button onClick={this.handleClickAddItem}>Add New Item</button>
         </div>
-        )
-    }
-}
+        )}}
 
 const mapStateToProps = state => ({
     user: state.user,
@@ -199,5 +195,4 @@ const mapStateToProps = state => ({
     addEventUser: state.addEventUser,
 });
 
-// this allows us to use <App /> in index.js
 export default connect(mapStateToProps)(EventPage);

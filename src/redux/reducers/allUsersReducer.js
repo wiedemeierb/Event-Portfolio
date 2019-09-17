@@ -4,9 +4,7 @@ const allUsersReducer = (state = [], action) => {
             return action.payload;
         default:
             return state;
-    }
-};
+    }};
 
-//user will be on the redux state at:
 // state.allUsers
 export default allUsersReducer;

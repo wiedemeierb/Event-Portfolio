@@ -13,10 +13,10 @@ function* fetchAllUsers() {
         })
     } catch (err) {
         console.log('GET ALL USERS REQUEST FAILED', err)
-    }
-}
+    }}
 
 function* allUsersSaga() {
     yield takeLatest('FETCH_ALLUSERS', fetchAllUsers);
 }
+
 export default allUsersSaga;
