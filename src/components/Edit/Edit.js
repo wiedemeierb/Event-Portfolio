@@ -60,11 +60,12 @@ class Edit extends Component {
             type: 'EDIT_USERINFO',
             payload: this.state
         })
-        this.props.history.push('/home')
+        // this.props.history.push('/home')
+        
     }
 
     render(){
-        console.log(this.state)
+        // console.log(this.state)
         
         return(
         <div>
@@ -88,6 +89,7 @@ class Edit extends Component {
             <p>Edit Venmo Username:</p>
             <input onChange={this.handleVenmoChange} />
             <button>Submit Edits</button>
+            {/* <button {if(window.confirm('Are you sure you wish to edit your User information?')}>Submit Edits</button> */}
         </div>
         </form>
         </div>

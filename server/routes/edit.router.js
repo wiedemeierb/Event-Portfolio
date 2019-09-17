@@ -6,8 +6,8 @@ const router = express.Router();
  * PUT route template
  */
 router.put('/:id', (req, res) => {
-    console.log('req.params is:', req.params);
-    console.log('req.body is:', req.body)
+    // console.log('req.params is:', req.params);
+    // console.log('req.body is:', req.body)
     let id = req.body.id
     let name = req.body.name;
     let payment_username = req.body.payment_username;
@@ -22,7 +22,7 @@ router.put('/:id', (req, res) => {
         WHERE id=$5;`;
         pool.query(queryText, [name, payment_username, phone_number, username, id])
         .then((result) => {
-            res.send(results.rows);
+            res.send(result.rows);
         }).catch((error) => {
             console.log('error with edit put', error)
             res.sendStatus(500);
