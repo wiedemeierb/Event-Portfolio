@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Moment from 'react-moment';
-// import { actionChannel } from 'redux-saga/effects';
-// import { stringify } from 'querystring';
 
 class EventPage extends Component {
 
@@ -19,10 +17,6 @@ class EventPage extends Component {
         this.props.dispatch({ 
             type: 'FETCH_ITEMS',
             payload: {id: Number(this.props.match.params.id)}})
-        // GET AVERAGE COST ON PAGE LOAD
-        // this.props.dispatch({
-        //     type: 'FETCH_AVG',
-        //     payload: {id: Number(this.props.match.params.id)}})
     };
 
     state = {
@@ -91,7 +85,6 @@ class EventPage extends Component {
                 <td><Moment format="MM/DD/YYYY">{item.date}</Moment></td>
                 <td>{item.time}</td>
                 <td>{item.description}</td>
-                {/* <td>{item.user_id}</td> */}
                     </tr>)
         })
         //FILTER TO GET ORGANIZER AND RENDER
@@ -121,8 +114,8 @@ class EventPage extends Component {
                 <td><button onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) this.handleDeleteItem(item.id) }}>Delete</button></td>
             </tr>);
         })
-        console.log('here is the total cost', totalCost)
-
+        // console.log('here is the total cost', totalCost)
+        let average = totalCost/totalAttendees
         return(
         <div>
             <h1>Welcome!</h1>
@@ -182,14 +175,13 @@ class EventPage extends Component {
                 </select>
                 <button onClick={() => this.handleClickAddUser()}>Add Attendee</button>
        
-            <h2>Items Needed:</h2>
+                <h2>Items Needed:</h2>
             <table className="table table-hover table-bordered">
                 <thead>
                     <tr>
                         <th>Items Needed</th>
                         <th>Cost</th>
                         <th>Delete</th>
-                        <th>{totalCost} / {totalAttendees}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -199,6 +191,8 @@ class EventPage extends Component {
             <input value={this.state.added_item} onChange={this.handleChangeItem} type='text' placeholder="New Item" />
             <input value={this.state.cost} onChange={this.handleChangeCost} type='text' placeholder="Cost" />
             <button onClick={this.handleClickAddItem}>Add New Item</button>
+            <h2>Average Owed</h2>
+            <h3>${average}</h3>
         </div>
         )}}
 

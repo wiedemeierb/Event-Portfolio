@@ -63,3 +63,5 @@ ALTER TABLE "event" ADD CONSTRAINT "event_fk0" FOREIGN KEY ("user_id") REFERENCE
 
 ALTER TABLE "items" ADD CONSTRAINT "items_fk0" FOREIGN KEY ("event_id") REFERENCES "event"("id");
 ALTER TABLE "items" ADD CONSTRAINT "items_fk1" FOREIGN KEY ("user_id") REFERENCES "user"("id");
+
+

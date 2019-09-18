@@ -32,12 +32,11 @@ function* addItem(action) {
 
 function* removeItem(action) {
     try {
-        console.log('this is the delete item payload', action.payload);
+        // console.log('this is the delete item payload', action.payload);
         // console.log(id);
         yield axios.delete(`/api/additem/${action.payload.id}`)
         yield put({
             type: 'FETCH_ITEMS',
-            // payload: action.payload.eventId
             payload: {id: Number(action.payload.eventId)}
         })
     } catch (error) {
