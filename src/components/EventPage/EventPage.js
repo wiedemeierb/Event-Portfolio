@@ -19,6 +19,10 @@ class EventPage extends Component {
         this.props.dispatch({ 
             type: 'FETCH_ITEMS',
             payload: {id: Number(this.props.match.params.id)}})
+        // GET AVERAGE COST ON PAGE LOAD
+        // this.props.dispatch({
+        //     type: 'FETCH_AVG',
+        //     payload: {id: Number(this.props.match.params.id)}})
     };
 
     state = {
@@ -53,6 +57,10 @@ class EventPage extends Component {
         this.props.dispatch({
             type: 'ADD_ITEM',
             payload: this.state,
+        })
+        this.setState({
+            added_item: '',
+            cost: ''
         })
     }
 
@@ -105,7 +113,7 @@ class EventPage extends Component {
         let itemTable = this.props.items.map((item) => {
             return (<tr key={item.id}>
                 <td>{item.item}</td>
-                <td>{item.cost}</td>
+                <td>${item.cost}</td>
                 {/* <td>USER NAME EVENTUALLY HERE</td> */}
                 <td><button onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) this.handleDeleteItem(item.id) }}>Delete</button></td>
             </tr>)
@@ -128,7 +136,9 @@ class EventPage extends Component {
                 <tbody>
                     {eventTable}
                 </tbody>
-                    <h2>Organizer:</h2>
+            </table>
+                <h2>Organizer:</h2>
+            <table className="table table-hover table-bordered">
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -144,7 +154,7 @@ class EventPage extends Component {
                             <td>{organizer.phone_number}</td>
                             <td><button><a href={`http://venmo.com/${organizer.payment_username}`}>Click To Pay</a></button></td>
                         </tr>
-                    </tbody>
+                </tbody>
             </table>
                 <h2>Attendees:</h2>
                 <table className="table table-hover table-bordered">
@@ -181,8 +191,8 @@ class EventPage extends Component {
                     {itemTable}
                 </tbody>
             </table>
-            <input onChange={this.handleChangeItem} type='text' placeholder="New Item" />
-            <input onChange={this.handleChangeCost} type='text' placeholder="Cost" />
+            <input value={this.state.added_item} onChange={this.handleChangeItem} type='text' placeholder="New Item" />
+            <input value={this.state.cost} onChange={this.handleChangeCost} type='text' placeholder="Cost" />
             <button onClick={this.handleClickAddItem}>Add New Item</button>
         </div>
         )}}

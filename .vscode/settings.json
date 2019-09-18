@@ -5,6 +5,7 @@
         "additem",
         "alleventusers",
         "allusers",
+        "avgitemcost",
         "createevent",
         "edit",
         "eventpage",

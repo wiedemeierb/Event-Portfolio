@@ -17,6 +17,7 @@ const addItemRouter = require('./routes/addItem.router');
 const addEventUserRouter = require('./routes/addeventuser.router');
 const userAttendingEvents = require('./routes/userattendingevents.router');
 const editRouter = require('./routes/edit.router');
+const avgItemCost = require('./routes/avgItemCost.router');
 
 
 // Body parser middleware
@@ -40,6 +41,7 @@ app.use('/api/additem', addItemRouter);
 app.use('/api/addeventuser', addEventUserRouter);
 app.use('/api/userattendingevents', userAttendingEvents);
 app.use('/api/edit', editRouter);
+app.use('/api/avgitemcost', avgItemCost);
 
 // Serve static files
 app.use(express.static('build'));
