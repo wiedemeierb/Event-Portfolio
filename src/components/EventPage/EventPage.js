@@ -102,6 +102,7 @@ class EventPage extends Component {
         }
 
         // console.log('this is state right now addEventUser', this.props.addEventUser)
+        let totalAttendees = this.props.addEventUser.length+1
         let allAttendeeTable = this.props.addEventUser.map((allAttendee) => {
             return (<tr key={allAttendee.name}>
                 <td>{allAttendee.name}</td>
@@ -109,15 +110,18 @@ class EventPage extends Component {
                 <td><button><a href={`http://venmo.com/${allAttendee.payment_username}`}>Click To Pay</a></button></td>
             </tr>)
         })
-
+        // console.log('this is total attendees:', totalAttendees)
+        let totalCost = 0;
         let itemTable = this.props.items.map((item) => {
+            totalCost += item.cost
             return (<tr key={item.id}>
                 <td>{item.item}</td>
                 <td>${item.cost}</td>
                 {/* <td>USER NAME EVENTUALLY HERE</td> */}
                 <td><button onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) this.handleDeleteItem(item.id) }}>Delete</button></td>
-            </tr>)
+            </tr>);
         })
+        console.log('here is the total cost', totalCost)
 
         return(
         <div>
@@ -185,6 +189,7 @@ class EventPage extends Component {
                         <th>Items Needed</th>
                         <th>Cost</th>
                         <th>Delete</th>
+                        <th>{totalCost} / {totalAttendees}</th>
                     </tr>
                 </thead>
                 <tbody>
