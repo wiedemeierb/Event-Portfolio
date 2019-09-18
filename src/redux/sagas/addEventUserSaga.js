@@ -32,9 +32,23 @@ function* addEventUser(action) {
         console.log('Error with addEventUser POST in Saga', error);
     }};
 
+function* removeAttendee(action) {
+    try {
+        // console.log('this is the delete item payload', action.payload);
+        yield axios.delete(`/api/addeventuser/${action.payload.id}`)
+        yield put({
+            type: 'FETCH_ALLEVENTUSERS',
+            payload: action.payload.eventId
+        })
+    } catch (error) {
+        console.log(error);
+    }
+}  
+
 function* addEventUserSaga() {
     yield takeLatest('FETCH_ALLEVENTUSERS', fetchAllEventUsers);
     yield takeLatest('ADD_EVENTUSER', addEventUser);
+    yield takeLatest('DELETE_ATTENDEE', removeAttendee);
 }
 
 export default addEventUserSaga;

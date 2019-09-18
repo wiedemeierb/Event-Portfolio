@@ -76,6 +76,13 @@ class EventPage extends Component {
         this.props.dispatch({ type: 'DELETE_ITEM', payload: { id: id, eventId: this.state.event_id}})
     }
 
+    handleDeleteAttendee(id) {
+        this.props.dispatch({
+            type: 'DELETE_ATTENDEE',
+            payload: { id: id, eventId: this.state.event_id }
+        })
+    }
+
     render(){
         // console.log('this is state right now', this.state)
         let eventTable = this.props.event.map((item) => {
@@ -97,10 +104,12 @@ class EventPage extends Component {
         // console.log('this is state right now addEventUser', this.props.addEventUser)
         let totalAttendees = this.props.addEventUser.length+1
         let allAttendeeTable = this.props.addEventUser.map((allAttendee) => {
-            return (<tr key={allAttendee.name}>
+            return (<tr key={allAttendee.id}>
                 <td>{allAttendee.name}</td>
                 <td>{allAttendee.username}</td>
+                <td>{allAttendee.phone_number}</td>
                 <td><button><a href={`http://venmo.com/${allAttendee.payment_username}`}>Click To Pay</a></button></td>
+                <td><button onClick={() => { if (window.confirm('Are you sure you wish to uninvite this Attendee?')) this.handleDeleteAttendee(allAttendee.id) }}>Uninvite</button></td>
             </tr>)
         })
         // console.log('this is total attendees:', totalAttendees)
@@ -110,7 +119,6 @@ class EventPage extends Component {
             return (<tr key={item.id}>
                 <td>{item.item}</td>
                 <td>${item.cost}</td>
-                {/* <td>USER NAME EVENTUALLY HERE</td> */}
                 <td><button onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) this.handleDeleteItem(item.id) }}>Delete</button></td>
             </tr>);
         })
@@ -159,7 +167,9 @@ class EventPage extends Component {
                         <tr>
                             <th>Name</th>
                             <th>Email</th>
+                            <th>Phone Number</th>
                             <th><a href={"https://venmo.com"}>Sign Up For Venmo</a></th>
+                            <th>Uninvite Attendee</th>
                         </tr>
                     </thead>
                     <tbody>
