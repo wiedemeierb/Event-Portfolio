@@ -1,9 +1,10 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 // EDIT ROUTER
-router.put('/:id', (req, res) => {
+router.put('/:id', rejectUnauthenticated, (req, res) => {
     // console.log('req.params is:', req.params);
     // console.log('req.body is:', req.body)
     let id = req.body.id

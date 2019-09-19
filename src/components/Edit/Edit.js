@@ -79,13 +79,13 @@ class Edit extends Component {
         <form>
         <div>
             <p>Edit Email Address:</p>
-            <input onChange={this.handleEmailChange} />
+            <input onChange={this.handleEmailChange} placeholder={this.props.user.username}/>
             <p>Edit Name:</p>
-            <input onChange={this.handleNameChange} />
+            <input onChange={this.handleNameChange} placeholder={this.props.user.name}/>
             <p>Edit Phone Number:</p>
-            <input onChange={this.handlePhoneChange} />
+            <input onChange={this.handlePhoneChange} placeholder={this.props.user.phone_number}/>
             <p>Edit Venmo Username:</p>
-            <input onChange={this.handleVenmoChange} />
+            <input onChange={this.handleVenmoChange} placeholder={this.props.user.payment_username}/>
             {/* <button onClick={() => { if (window.confirm('Are you sure you wish to edit your User information')) this.editUserInformation()}}>Submit Edits</button> */}
             <p></p>
             <Button variant="success" onClick={() => { if (window.confirm('Are you sure you wish to edit your User information')) this.editUserInformation() }}>Submit Edits</Button>

@@ -1,8 +1,9 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
-router.get('/:id', (req, res) => {
+router.get('/:id', rejectUnauthenticated, (req, res) => {
     let queryText = 'SELECT * FROM "items" WHERE "event_id" = $1;';
     // console.log('in GET router for addItems')
     pool.query(queryText, [req.params.id])
@@ -13,7 +14,7 @@ router.get('/:id', (req, res) => {
     })
 });
 
-router.post('/', (req, res) => {
+router.post('/', rejectUnauthenticated, (req, res) => {
     // console.log('in POST for Items', req.body);
     const added_item = req.body.added_item;
     const cost = req.body.cost;
@@ -28,9 +29,9 @@ router.post('/', (req, res) => {
     });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', rejectUnauthenticated,(req, res) => {
     // console.log(req.body);
-    if (req.isAuthenticated()) {
+    
         let id = req.params.id
         // console.log(req.params.id)
         let queryText = `DELETE FROM "items" WHERE "id" = $1`
@@ -40,7 +41,6 @@ router.delete('/:id', (req, res) => {
                 console.log('error in server side DELETE', error);
                 res.sendStatus(418)
             })
-    } else { 403 }
 });
 
 module.exports = router;

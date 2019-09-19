@@ -1,8 +1,9 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const eventRouter = express.Router();
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
-eventRouter.post('/createevent', (req, res) => {
+eventRouter.post('/createevent', rejectUnauthenticated, (req, res) => {
     // console.log('got to eventRouter POST')
     const event_name = req.body.event_name;
     // console.log(event_name)

@@ -1,8 +1,9 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
-router.get('/:id', (req, res) => {
+router.get('/:id', rejectUnauthenticated, (req, res) => {
     let eventId = req.params.id
     let queryText = `SELECT "user".id, "user".name, "user".username, "user".payment_username, "user".phone_number FROM "user"
                     JOIN "user_event" ON "user".id = "user_event".user_id
@@ -16,7 +17,7 @@ router.get('/:id', (req, res) => {
             res.sendStatus(418)})
 });
 
-router.post('/', (req, res) => {
+router.post('/', rejectUnauthenticated, (req, res) => {
     // console.log('in POST router for addEventUser', req.body);
     const added_user = req.body.user_id;
     const event = req.body.event_id;
@@ -29,9 +30,9 @@ router.post('/', (req, res) => {
     });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
     // console.log(req.body);
-    if (req.isAuthenticated()) {
+    
         let id = req.params.id
         // console.log(req.params.id)
         let queryText = `DELETE FROM "user_event" WHERE "user_id" = $1`
@@ -41,7 +42,6 @@ router.delete('/:id', (req, res) => {
                 console.log('error in server side DELETE attendee', error);
                 res.sendStatus(418)
             })
-    } else { 403 }
 });
 
 module.exports = router;

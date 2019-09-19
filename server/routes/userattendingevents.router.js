@@ -1,8 +1,9 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
-router.get('/:id', (req, res) => {
+router.get('/:id', rejectUnauthenticated, (req, res) => {
     if(req.isAuthenticated()){
         let id = req.user.id
         let queryText = `SELECT "event".event_name, "event".location, "event".date, "event".time, "user_event".event_id FROM "user_event"
