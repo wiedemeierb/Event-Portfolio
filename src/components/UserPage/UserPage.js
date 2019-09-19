@@ -65,9 +65,9 @@ class UserPage extends Component {
     return (
       <div>
         <div>
-          <h1 id="welcome">
+          <h2 id="welcome">
             Welcome, {this.props.user.name}!
-          </h1>
+          </h2>
           <p>Your Username/Email Address is: {this.props.user.username}</p>
           <p>Phone Number is: {this.props.user.phone_number}</p>
           <p>Venmo Username is: {this.props.user.payment_username}</p>

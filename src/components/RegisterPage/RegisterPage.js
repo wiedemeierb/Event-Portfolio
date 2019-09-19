@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 
+import './RegisterPage.css';
+
 class RegisterPage extends Component {
   state = {
     username: '',
@@ -47,7 +49,7 @@ class RegisterPage extends Component {
           </h2>
         )}
         <form onSubmit={this.registerUser}>
-          <h1>Become A Event-Portfolio User Today!</h1>
+          <h2>Become A Event-Portfolio User Today!</h2>
           <div>
             <label htmlFor="username">
               Username:
