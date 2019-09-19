@@ -14,6 +14,7 @@ import Edit from '../Edit/Edit';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
+
 class App extends Component {
   componentDidMount () {
     this.props.dispatch({type: 'FETCH_USER'})

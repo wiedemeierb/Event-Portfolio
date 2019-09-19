@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Button from 'react-bootstrap/Button'
 
 
 class Edit extends Component {
@@ -73,7 +74,7 @@ class Edit extends Component {
             <p>Your Username/Email Address is: {this.props.user.username}</p>
             <p>Phone Number is: {this.props.user.phone_number}</p>
             <p>Venmo Username is: {this.props.user.payment_username}</p>
-          <button onClick={this.handleCancelEdit}>Cancel Edits</button>
+            <Button variant="danger" onClick={this.handleCancelEdit}>Cancel Edits</Button>
         </div>
         <form>
         <div>
@@ -85,7 +86,9 @@ class Edit extends Component {
             <input onChange={this.handlePhoneChange} />
             <p>Edit Venmo Username:</p>
             <input onChange={this.handleVenmoChange} />
-            <button onClick={() => { if (window.confirm('Are you sure you wish to edit your User information')) this.editUserInformation()}}>Submit Edits</button>
+            {/* <button onClick={() => { if (window.confirm('Are you sure you wish to edit your User information')) this.editUserInformation()}}>Submit Edits</button> */}
+            <p></p>
+            <Button variant="success" onClick={() => { if (window.confirm('Are you sure you wish to edit your User information')) this.editUserInformation() }}>Submit Edits</Button>
         </div>
         </form>
         </div>

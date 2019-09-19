@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Moment from 'react-moment';
+import Button from 'react-bootstrap/Button'
 
 class EventPage extends Component {
 
@@ -108,8 +109,8 @@ class EventPage extends Component {
                 <td>{allAttendee.name}</td>
                 <td>{allAttendee.username}</td>
                 <td>{allAttendee.phone_number}</td>
-                <td><button><a href={`http://venmo.com/${allAttendee.payment_username}`}>Click To Pay</a></button></td>
-                <td><button onClick={() => { if (window.confirm('Are you sure you wish to uninvite this Attendee?')) this.handleDeleteAttendee(allAttendee.id) }}>Uninvite</button></td>
+                <td><Button variant="outline-success"><a href={`http://venmo.com/${allAttendee.payment_username}`}>Click To Pay</a></Button></td>
+                <td><Button variant="danger" onClick={() => { if (window.confirm('Are you sure you wish to uninvite this Attendee?')) this.handleDeleteAttendee(allAttendee.id) }}>Uninvite</Button></td>
             </tr>)
         })
         // console.log('this is total attendees:', totalAttendees)
@@ -119,7 +120,7 @@ class EventPage extends Component {
             return (<tr key={item.id}>
                 <td>{item.item}</td>
                 <td>${item.cost}</td>
-                <td><button onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) this.handleDeleteItem(item.id) }}>Delete</button></td>
+                <td><Button variant="danger" onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) this.handleDeleteItem(item.id) }}>Delete</Button></td>
             </tr>);
         })
         // console.log('here is the total cost', totalCost)
@@ -157,7 +158,7 @@ class EventPage extends Component {
                             <td>{organizer.name}</td>
                             <td>{organizer.username}</td>
                             <td>{organizer.phone_number}</td>
-                            <td><button><a href={`http://venmo.com/${organizer.payment_username}`}>Click To Pay</a></button></td>
+                            <td><Button variant="outline-success"><a href={`http://venmo.com/${organizer.payment_username}`}>Click To Pay</a></Button></td>
                         </tr>
                 </tbody>
             </table>

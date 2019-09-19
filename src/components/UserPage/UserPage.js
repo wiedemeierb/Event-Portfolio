@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import Moment from 'react-moment';
+import Button from 'react-bootstrap/Button'
 
 class UserPage extends Component {
   componentDidMount(){
@@ -45,7 +46,8 @@ class UserPage extends Component {
                 <td>{events.location}</td>
                 <td><Moment format="MM/DD/YYYY">{events.date}</Moment></td>
                 <td>{events.time}</td>
-                <td><button onClick={() => this.handleClick(events.event_id)}>View Event</button></td>
+                <td><Button variant="success" onClick={() => this.handleClick(events.event_id)}>View Event</Button></td>
+
               </tr>)
     })
     let table = this.props.userEvents.map((item) => {
@@ -54,9 +56,9 @@ class UserPage extends Component {
                   <td>{item.location}</td>
                   <td><Moment format="MM/DD/YYYY">{item.date}</Moment></td>
                   <td>{item.time}</td>
-                  <td><button onClick={()=>this.handleClick(item.id)}>View Event</button></td>
-                  <td><button onClick={() => { if (window.confirm('Are you sure you wish to delete this event?')) 
-                      this.handleDelete(item.id, item.user_id) }}>Delete</button></td>
+                  <td><Button variant="primary" onClick={()=>this.handleClick(item.id)}>View Event</Button></td>
+                  <td><Button variant="danger" onClick={() => { if (window.confirm('Are you sure you wish to delete this event?')) 
+                      this.handleDelete(item.id, item.user_id) }}>Delete</Button></td>
               </tr>)
     })
 
@@ -69,7 +71,7 @@ class UserPage extends Component {
           <p>Your Username/Email Address is: {this.props.user.username}</p>
           <p>Phone Number is: {this.props.user.phone_number}</p>
           <p>Venmo Username is: {this.props.user.payment_username}</p>
-          <button onClick={this.handleEditClick}>Edit User Information</button>
+          <Button variant="success" onClick={this.handleEditClick}>Edit User Information</Button>
         </div>
 
         <table className="table table-hover table-bordered">
