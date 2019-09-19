@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Moment from 'react-moment';
-import Button from 'react-bootstrap/Button'
+import Button from 'react-bootstrap/Button';
+import './EventPage.css';
 
 class EventPage extends Component {
 
@@ -127,7 +128,7 @@ class EventPage extends Component {
         let average = totalCost/totalAttendees
         return(
         <div>
-            <h1>Welcome!</h1>
+            <h1 className="pageTitle">Welcome!</h1>
             <table className="table table-hover table-bordered">
                 <thead>
                     <tr>
@@ -184,7 +185,7 @@ class EventPage extends Component {
                             <option value={allAttendees.id} key={allAttendees.id}>{allAttendees.name}</option>
                         )})}
                 </select>
-                <button onClick={() => this.handleClickAddUser()}>Add Attendee</button>
+                <Button variant="primary" onClick={() => this.handleClickAddUser()}>Add Attendee</Button>
        
                 <h2>Items Needed:</h2>
             <table className="table table-hover table-bordered">
@@ -201,7 +202,7 @@ class EventPage extends Component {
             </table>
             <input value={this.state.added_item} onChange={this.handleChangeItem} type='text' placeholder="New Item" />
             <input value={this.state.cost} onChange={this.handleChangeCost} type='text' placeholder="Cost" />
-            <button onClick={this.handleClickAddItem}>Add New Item</button>
+            <Button variant="primary" onClick={this.handleClickAddItem}>Add New Item</Button>
             <h2>Average Owed</h2>
             <h3>${average}</h3>
         </div>

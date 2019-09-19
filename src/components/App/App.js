@@ -4,7 +4,6 @@ import {HashRouter as Router, Route, Redirect, Switch,} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 import Nav from '../Nav/Nav';
-import Footer from '../Footer/Footer';
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import CreateEvent from '../CreateEvent/CreateEvent';
@@ -65,7 +64,6 @@ class App extends Component {
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
           </Switch>
-          <Footer />
         </div>
       </Router>
   )}

@@ -63,7 +63,7 @@ class UserPage extends Component {
     })
 
     return (
-      <div>
+      <div className="userPage">
         <div>
           <h2 id="welcome">
             Welcome, {this.props.user.name}!

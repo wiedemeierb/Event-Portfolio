@@ -31,7 +31,7 @@ class LoginPage extends Component {
 
   render() {
     return (
-      <div>
+      <div className="red">
         {this.props.errors.loginMessage && (
           <h2
             className="alert"
@@ -40,7 +40,7 @@ class LoginPage extends Component {
             {this.props.errors.loginMessage}
           </h2>
         )}
-        <form onSubmit={this.login}>
+        <form className="loginPage" onSubmit={this.login}>
           <h1>Welcome To Event-Portfolio</h1>
           <div>
             <label htmlFor="username">
