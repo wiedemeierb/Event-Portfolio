@@ -64,14 +64,15 @@ class UserPage extends Component {
 
     return (
       <div className="userPage">
-        <div>
-          <h2 id="welcome">
-            Welcome, {this.props.user.name}!
+        <div className="userName">
+          <h2>
+            Welcome {this.props.user.name}!
           </h2>
-          <p>Your Username/Email Address is: {this.props.user.username}</p>
-          <p>Phone Number is: {this.props.user.phone_number}</p>
-          <p>Venmo Username is: {this.props.user.payment_username}</p>
-          <Button variant="success" onClick={this.handleEditClick}>Edit User Information</Button>
+          <p>Username/Email Address: {this.props.user.username}</p>
+          <p>Phone Number: {this.props.user.phone_number}</p>
+          <p>Venmo Username: {this.props.user.payment_username}</p>
+          <Button variant="success" onClick={this.handleEditClick}>Edit Your Information</Button>
+          <br /> <br />
         </div>
 
         <table className="table table-hover table-bordered">

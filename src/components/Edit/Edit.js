@@ -67,28 +67,24 @@ class Edit extends Component {
         // console.log(this.state)
         return(
         <div>
-        <div>
-          <h1 id="welcome">
-            {this.props.user.name}!
-          </h1>
-            <p>Your Username/Email Address is: {this.props.user.username}</p>
-            <p>Phone Number is: {this.props.user.phone_number}</p>
-            <p>Venmo Username is: {this.props.user.payment_username}</p>
-            <Button variant="danger" onClick={this.handleCancelEdit}>Cancel Edits</Button>
+        <div className="userName">
+        <h1 className="userName">{this.props.user.name}</h1>
+        <p>Username/Email Address: {this.props.user.username}</p>
+        <p>Phone Number: {this.props.user.phone_number}</p>
+        <p>Venmo Username: {this.props.user.payment_username}</p>
+        <p><Button variant="danger" onClick={this.handleCancelEdit}>Cancel Edits</Button></p>
         </div>
         <form>
-        <div>
-            <p>Edit Email Address:</p>
-            <input onChange={this.handleEmailChange} placeholder={this.props.user.username}/>
-            <p>Edit Name:</p>
-            <input onChange={this.handleNameChange} placeholder={this.props.user.name}/>
-            <p>Edit Phone Number:</p>
-            <input onChange={this.handlePhoneChange} placeholder={this.props.user.phone_number}/>
-            <p>Edit Venmo Username:</p>
-            <input onChange={this.handleVenmoChange} placeholder={this.props.user.payment_username}/>
-            {/* <button onClick={() => { if (window.confirm('Are you sure you wish to edit your User information')) this.editUserInformation()}}>Submit Edits</button> */}
-            <p></p>
-            <Button variant="success" onClick={() => { if (window.confirm('Are you sure you wish to edit your User information')) this.editUserInformation() }}>Submit Edits</Button>
+        <div className="userName">
+            <p>Edit Email Address:
+            <input onChange={this.handleEmailChange} placeholder={this.props.user.username} /></p>
+            <p>Edit Name:
+            <input onChange={this.handleNameChange} placeholder={this.props.user.name} /></p>
+            <p>Edit Phone Number:
+            <input onChange={this.handlePhoneChange} placeholder={this.props.user.phone_number} /></p>
+            <p>Edit Venmo Username:
+            <input onChange={this.handleVenmoChange} placeholder={this.props.user.payment_username} /></p>
+            <p><Button variant="success" onClick={() => { if (window.confirm('Are you sure you wish to edit your User information')) this.editUserInformation() }}>Submit Edits</Button></p>
         </div>
         </form>
         </div>

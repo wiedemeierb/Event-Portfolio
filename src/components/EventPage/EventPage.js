@@ -128,7 +128,9 @@ class EventPage extends Component {
         let average = totalCost/totalAttendees
         return(
         <div>
+            <br />
             <h1 className="pageTitle">Welcome!</h1>
+            <br />
             <table className="table table-hover table-bordered">
                 <thead>
                     <tr>
@@ -186,7 +188,7 @@ class EventPage extends Component {
                         )})}
                 </select>
                 <Button variant="primary" onClick={() => this.handleClickAddUser()}>Add Attendee</Button>
-       
+                <br /> <br />
                 <h2>Items Needed:</h2>
             <table className="table table-hover table-bordered">
                 <thead>
@@ -203,7 +205,8 @@ class EventPage extends Component {
             <input value={this.state.added_item} onChange={this.handleChangeItem} type='text' placeholder="New Item" />
             <input value={this.state.cost} onChange={this.handleChangeCost} type='text' placeholder="Cost" />
             <Button variant="primary" onClick={this.handleClickAddItem}>Add New Item</Button>
-            <h2>Average Owed</h2>
+            <br /> <br />
+            <h2>Average Owed:</h2>
             <h3>${average}</h3>
         </div>
         )}}

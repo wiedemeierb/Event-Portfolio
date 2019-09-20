@@ -41,7 +41,7 @@ class CreateEvent extends Component {
   render() {
     return (
       <Router>
-      <div>
+      <div className="createEvent">
         <form onSubmit={this.createEvent}>
           <h1>Create A New Event!</h1>
           <div>

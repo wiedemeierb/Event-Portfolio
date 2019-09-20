@@ -49,6 +49,12 @@ input {
     cursor: pointer;
 }
 
+.createEvent {
+    text-align: center;
+}
+.userName {
+    text-align: center;
+}
 /* html {
     background-color: red;
 } */

@@ -4,7 +4,6 @@ import {HashRouter as Router, Route, Redirect, Switch,} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 import Nav from '../Nav/Nav';
-import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import CreateEvent from '../CreateEvent/CreateEvent';
 import EventPage from '../EventPage/EventPage';
@@ -29,11 +28,6 @@ class App extends Component {
             <Redirect exact from="/" to="/home" />
             {/* Visiting localhost:3000/about will show the about page.
             This is a route anyone can see, no login necessary */}
-            <Route
-              exact
-              path="/about"
-              component={AboutPage}
-            />
             {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/home will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the 'Login' or 'Register' page.
