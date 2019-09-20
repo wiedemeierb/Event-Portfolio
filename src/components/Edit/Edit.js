@@ -74,15 +74,19 @@ class Edit extends Component {
         <p>Venmo Username: {this.props.user.payment_username}</p>
         <p><Button variant="danger" onClick={this.handleCancelEdit}>Cancel Edits</Button></p>
         </div>
-        <form>
-        <div className="userName">
+        <form className="editForm">
+        <div>
             <p>Edit Email Address:
+                <br />
             <input onChange={this.handleEmailChange} placeholder={this.props.user.username} /></p>
             <p>Edit Name:
+                <br />
             <input onChange={this.handleNameChange} placeholder={this.props.user.name} /></p>
             <p>Edit Phone Number:
+                <br />
             <input onChange={this.handlePhoneChange} placeholder={this.props.user.phone_number} /></p>
             <p>Edit Venmo Username:
+                <br />
             <input onChange={this.handleVenmoChange} placeholder={this.props.user.payment_username} /></p>
             <p><Button variant="success" onClick={() => { if (window.confirm('Are you sure you wish to edit your User information')) this.editUserInformation() }}>Submit Edits</Button></p>
         </div>

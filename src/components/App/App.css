@@ -1,7 +1,7 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0px;
-    
+    height: 100vh;
 }
 
 .alert {
@@ -12,7 +12,7 @@ body {
 form {
     background-color: #dbd5d5;
     width: 40%;
-    height: 400px;
+    /* height: 800px; */
     margin: 20px auto;
     padding: 25px;
     border-radius: 2px;
@@ -51,10 +51,18 @@ input {
 
 .createEvent {
     text-align: center;
+    background-image: url('/images/fun-confetti-seamless-repeat-pattern-vector-20643114.jpg');
 }
-.userName {
+
+.editForm {
     text-align: center;
 }
+.appJS {
+    background-image: url('/images/fun-confetti-seamless-repeat-pattern-vector-20643114.jpg');
+    height: 100vh;
+}
+
+
 /* html {
     background-color: red;
 } */

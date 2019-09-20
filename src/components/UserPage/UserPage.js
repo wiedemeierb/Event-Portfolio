@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import Moment from 'react-moment';
 import Button from 'react-bootstrap/Button'
+import './UserPage.css'
 
 class UserPage extends Component {
   componentDidMount(){
@@ -63,7 +64,7 @@ class UserPage extends Component {
     })
 
     return (
-      <div className="userPage">
+      <div>
         <div className="userName">
           <h2>
             Welcome {this.props.user.name}!
@@ -75,7 +76,7 @@ class UserPage extends Component {
           <br /> <br />
         </div>
 
-        <table className="table table-hover table-bordered">
+        <table className="table table-striped table-dark table-bordered table-hover tacos">
           <thead>
             <tr>
               <th>Organized Events</th>

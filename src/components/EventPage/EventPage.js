@@ -94,6 +94,7 @@ class EventPage extends Component {
                 <td><Moment format="MM/DD/YYYY">{item.date}</Moment></td>
                 <td>{item.time}</td>
                 <td>{item.description}</td>
+                {/* let currentTime = moment().format('MMMM Do YYYY, h:mm:ss a'); */}
                     </tr>)
         })
         //FILTER TO GET ORGANIZER AND RENDER
@@ -118,6 +119,7 @@ class EventPage extends Component {
         let totalCost = 0;
         let itemTable = this.props.items.map((item) => {
             totalCost += item.cost
+            // console.log(this.props.items)
             return (<tr key={item.id}>
                 <td>{item.item}</td>
                 <td>${item.cost}</td>
@@ -127,11 +129,11 @@ class EventPage extends Component {
         // console.log('here is the total cost', totalCost)
         let average = totalCost/totalAttendees
         return(
-        <div>
+        <div className="eventPage">
             <br />
             <h1 className="pageTitle">Welcome!</h1>
             <br />
-            <table className="table table-hover table-bordered">
+                <table className="table table-striped table-dark table-bordered table-hover tacos" >
                 <thead>
                     <tr>
                         <th>Event Name</th>
@@ -147,7 +149,7 @@ class EventPage extends Component {
                 </tbody>
             </table>
                 <h2>Organizer:</h2>
-            <table className="table table-hover table-bordered">
+                <table className="table table-striped table-dark table-bordered table-hover tacos">
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -166,7 +168,7 @@ class EventPage extends Component {
                 </tbody>
             </table>
                 <h2>Attendees:</h2>
-                <table className="table table-hover table-bordered">
+                <table className="table table-striped table-dark table-bordered table-hover tacos">
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -190,7 +192,7 @@ class EventPage extends Component {
                 <Button variant="primary" onClick={() => this.handleClickAddUser()}>Add Attendee</Button>
                 <br /> <br />
                 <h2>Items Needed:</h2>
-            <table className="table table-hover table-bordered">
+                <table className="table table-striped table-dark table-bordered table-hover tacos">
                 <thead>
                     <tr>
                         <th>Items Needed</th>
