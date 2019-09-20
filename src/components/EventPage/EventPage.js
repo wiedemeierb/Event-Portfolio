@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Moment from 'react-moment';
 import Button from 'react-bootstrap/Button';
+import Table from 'react-bootstrap/Table'
 import './EventPage.css';
 
 class EventPage extends Component {
@@ -133,7 +134,7 @@ class EventPage extends Component {
             <br />
             <h1 className="pageTitle">Welcome!</h1>
             <br />
-                <table className="table table-striped table-dark table-bordered table-hover tacos" >
+                <Table striped bordered hover variant="dark">
                 <thead>
                     <tr>
                         <th>Event Name</th>
@@ -147,9 +148,9 @@ class EventPage extends Component {
                 <tbody>
                     {eventTable}
                 </tbody>
-            </table>
+            </Table>
                 <h2>Organizer:</h2>
-                <table className="table table-striped table-dark table-bordered table-hover tacos">
+                <Table striped bordered hover variant="dark">
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -166,9 +167,9 @@ class EventPage extends Component {
                             <td><Button variant="outline-success"><a href={`http://venmo.com/${organizer.payment_username}`}>Click To Pay</a></Button></td>
                         </tr>
                 </tbody>
-            </table>
+            </Table>
                 <h2>Attendees:</h2>
-                <table className="table table-striped table-dark table-bordered table-hover tacos">
+                <Table striped bordered hover variant="dark">
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -181,8 +182,8 @@ class EventPage extends Component {
                     <tbody>
                         {allAttendeeTable}
                     </tbody>
-                </table>
-                <select defaultValue={'DEFAULT'} value={this.state.value} onChange={this.handleChangeAddUser}>
+                </Table>
+                <select className="dropDownTable" defaultValue={'DEFAULT'} value={this.state.value} onChange={this.handleChangeAddUser}>
                     <option disabled value="DEFAULT">Choose An Attendee</option>
                     {this.props.allUsers.map(allAttendees => {
                         return (
@@ -192,7 +193,7 @@ class EventPage extends Component {
                 <Button variant="primary" onClick={() => this.handleClickAddUser()}>Add Attendee</Button>
                 <br /> <br />
                 <h2>Items Needed:</h2>
-                <table className="table table-striped table-dark table-bordered table-hover tacos">
+                <Table striped bordered hover variant="dark">
                 <thead>
                     <tr>
                         <th>Items Needed</th>
@@ -203,13 +204,15 @@ class EventPage extends Component {
                 <tbody>
                     {itemTable}
                 </tbody>
-            </table>
+            </Table>
             <input value={this.state.added_item} onChange={this.handleChangeItem} type='text' placeholder="New Item" />
             <input value={this.state.cost} onChange={this.handleChangeCost} type='text' placeholder="Cost" />
             <Button variant="primary" onClick={this.handleClickAddItem}>Add New Item</Button>
             <br /> <br />
+                <div className="averageCost">
             <h2>Average Owed:</h2>
             <h3>${average}</h3>
+            </div>
         </div>
         )}}
 

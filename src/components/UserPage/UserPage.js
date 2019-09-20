@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import Moment from 'react-moment';
-import Button from 'react-bootstrap/Button'
+import Button from 'react-bootstrap/Button';
+import Table from 'react-bootstrap/Table';
 import './UserPage.css'
 
 class UserPage extends Component {
@@ -76,7 +77,7 @@ class UserPage extends Component {
           <br /> <br />
         </div>
 
-        <table className="table table-striped table-dark table-bordered table-hover tacos">
+        <Table striped bordered hover variant="dark">
           <thead>
             <tr>
               <th>Organized Events</th>
@@ -91,7 +92,7 @@ class UserPage extends Component {
             {table}
             {userAttendingEventsTable}
           </tbody>
-        </table>
+        </Table>
         <LogOutButton className="log-in" />
         </div>
         )}};

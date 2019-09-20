@@ -3,5 +3,21 @@
 }
 .tacos {
     opacity: .8;
-    
+}
+
+.dropDownTable {
+    min-width: 250px;
+    height: 40px;
+    line-height: 40px;
+}
+
+.averageCost {
+    margin: auto;
+    width: 25%;
+    border: 10px solid gray;
+    padding: 20px;
+    background-color: #ffffff;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
 }

@@ -59,7 +59,7 @@ input {
 }
 .appJS {
     background-image: url('/images/fun-confetti-seamless-repeat-pattern-vector-20643114.jpg');
-    height: 100vh;
+    min-height: 100vh;
 }
 
 
