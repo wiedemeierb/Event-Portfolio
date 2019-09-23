@@ -67,6 +67,7 @@ class UserPage extends Component {
     return (
       <div>
         <div className="userName">
+          <form>
           <h2>
             Welcome {this.props.user.name}!
           </h2>
@@ -75,6 +76,7 @@ class UserPage extends Component {
           <p>Venmo Username: {this.props.user.payment_username}</p>
           <Button variant="success" onClick={this.handleEditClick}>Edit Your Information</Button>
           <br /> <br />
+          </form>
         </div>
 
         <Table striped bordered hover variant="dark">

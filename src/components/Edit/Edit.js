@@ -67,6 +67,7 @@ class Edit extends Component {
         // console.log(this.state)
         return(
         <div>
+        <form>
         <div className="userName">
         <h1 className="userName">{this.props.user.name}</h1>
         <p>Username/Email Address: {this.props.user.username}</p>
@@ -74,6 +75,7 @@ class Edit extends Component {
         <p>Venmo Username: {this.props.user.payment_username}</p>
         <p><Button variant="danger" onClick={this.handleCancelEdit}>Cancel Edits</Button></p>
         </div>
+        </form>
         <form className="editForm">
         <div>
             <p>Edit Email Address:

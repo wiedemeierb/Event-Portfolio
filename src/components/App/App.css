@@ -60,6 +60,7 @@ input {
 }
 .appJS {
     background-image: url('/images/image.jpg');
+    /* background-image-opacity: .7; */
     /* background-image: url('/public/images/new-background-image.jpg'); */
     min-height: 100vh;
 }
