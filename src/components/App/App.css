@@ -51,14 +51,16 @@ input {
 
 .createEvent {
     text-align: center;
-    background-image: url('/images/fun-confetti-seamless-repeat-pattern-vector-20643114.jpg');
+    background-image: url('/images/image.jpg');
+    min-height: 100vh;
 }
 
 .editForm {
     text-align: center;
 }
 .appJS {
-    background-image: url('/images/fun-confetti-seamless-repeat-pattern-vector-20643114.jpg');
+    background-image: url('/images/image.jpg');
+    /* background-image: url('/public/images/new-background-image.jpg'); */
     min-height: 100vh;
 }
 
