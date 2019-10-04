@@ -11,6 +11,12 @@
     line-height: 40px;
 }
 
+.itemInputs {
+    min-width: 250px;
+    height: 40px;
+    line-height: 40px;
+}
+
 .averageCost {
     margin: auto;
     width: 25%;
@@ -20,4 +26,8 @@
     text-align: center;
     text-transform: uppercase;
     font-weight: bold;
+}
+
+.eventPage {
+    background-color: #dbd5d5;
 }

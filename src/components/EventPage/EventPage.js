@@ -129,6 +129,7 @@ class EventPage extends Component {
         })
         // console.log('here is the total cost', totalCost)
         let average = totalCost/totalAttendees
+        let averageCost = parseFloat(average).toFixed(2)
         return(
         <div className="eventPage">
             <br />
@@ -205,13 +206,13 @@ class EventPage extends Component {
                     {itemTable}
                 </tbody>
             </Table>
-            <input value={this.state.added_item} onChange={this.handleChangeItem} type='text' placeholder="New Item" />
-            <input value={this.state.cost} onChange={this.handleChangeCost} type='text' placeholder="Cost" />
+            <input className="itemInputs" value={this.state.added_item} onChange={this.handleChangeItem} type='text' placeholder="New Item" />
+            <input className="itemInputs" value={this.state.cost} onChange={this.handleChangeCost} type='text' placeholder="Cost" />
             <Button variant="primary" onClick={this.handleClickAddItem}>Add New Item</Button>
             <br /> <br />
                 <div className="averageCost">
             <h2>Average Owed:</h2>
-            <h3>${average}</h3>
+            <h3>${averageCost}</h3>
             </div>
         </div>
         )}}
